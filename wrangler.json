@@ -1,5 +1,5 @@
 {
-    "name": "matchup-scoreSS",
+    "name": "matchup-score",
     "compatibility_date": "2025-05-06",
     "pages_build_output_dir": "./dist"
 }  
