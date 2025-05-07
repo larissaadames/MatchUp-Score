@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+body{
+    --cor-back-1:#242322;
+    --cor-1:#34675C;
+    --cor-2:#D9D9D9;
+    --cor-3:#363432;
+}
+
+main{
+    background-color: var(--cor-back-1);
+    color: var(--cor-2);
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: calc(100vw - 4rem);
+    background-color: var(--cor-back-1);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 2rem 1rem 2rem;
+
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+.topHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.centroHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.barraPesquisa{
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
