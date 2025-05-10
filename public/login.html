@@ -1,21 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+
 </head>
 <body>
-    
-    <main>
 
-        <section>
+  <main>
 
-            
+    <section class="container-login">
+
+        <h1>Login:</h1>
+
+        <div>
+
+            <label for="email">Email</label>
+                <input type="text" id="email" />
+
+            </div>
+
+            <div>
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha"/>
+
+            </div>
+
+            <div>
+
+                <button type="button" onclick="window.location.href = 'tela-boas-vindas.html'">Continuar</button>
+
+            </div>
 
         </section>
 
-    </main>
+
+  </main>
 
 </body>
 </html>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    *{
+
+        font-family: "Bebas Neue", sans-serif;
+
+    }
+
+    html{
+
+        transform: translateX(0);
+
+    }
+
+    html.entrada{
+
+        animation: slidein 0.5s ease-out forwards;
+
+    }
+
+    @keyframes slidein{
+
+        from{
+
+            transform: translateX(100%);
+
+        }
+
+        to{
+
+            transform: translateX(0);
+
+        }
+
+    }
+
+    body{
+
+        background-color: #1E1E1E;
+        /* opacity: 0; 
+        transition: opacity 0.5s ease-in-out; */
+
+    }
+
+    /* body.fade-in {
+
+        opacity: 1;
+
+    } */
+
+    main{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+
+    .container-login{
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+        min-height: 300px;
+        max-width: 600px;
+        background-color: #363432;
+        border-radius: 40px;
+        color: white;
+
+    }
+
+    .container-login h1{
+
+        font-size: 48px;
+
+    }
+
+    .container-login div {
+
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        
+    }
+    
+    .container-login div input{
+
+        background-color: #242322;
+        color: white;
+        border-radius: 27px;
+        width: clamp(230px, 50vw, 293px);
+        height: 70px;
+        border-style: none;
+        font-size: 20px;
+        padding-left: 1.1em;
+        transition: 0.5s;
+
+    }
+
+    .container-login div input:focus{
+
+        outline: none;
+        transition: 0.5s;
+        box-shadow: 0 0 3px 2px #34675C;
+
+    }
+
+    .container-login div label{
+
+        margin-left: 1em;
+        font-size: 20px;
+
+    }
+
+    .container-login div button{
+
+        background-color: #34675C;
+        color: white;
+        font-size: 24px;
+        border-radius: 27px;
+        border-style: none;
+        width: 250px;
+        height: 62px;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        transition: 0.5s;
+
+    }
+
+    .container-login div button:hover, .container-login div button:focus{
+
+        transition: 0.5s;
+        cursor: pointer;
+        background-color: #053D38;
+
+    }
+
+</style>
+
+<script>
+    
+    if (sessionStorage.getItem('animarEntrada')) 
+    {
+
+      document.documentElement.classList.add('entrada');
+      sessionStorage.removeItem('animarEntrada');
+
+    }
+
+    // window.addEventListener('load', function () {
+    //     document.body.classList.add('fade-in');
+    // });
+
+    // document.querySelectorAll('.link-navbar').forEach(link => 
+    // {
+
+    //     link.addEventListener('click', function (e) 
+    //     {
+
+    //         e.preventDefault();
+    //         document.body.classList.add('fade-animacao');
+
+    //         setTimeout(() => 
+    //         {
+
+    //             window.location.href = this.href;
+
+    //         }, 800);
+
+    //     });
+
+    // });
+
+</script>
