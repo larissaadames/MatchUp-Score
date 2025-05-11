@@ -84,16 +84,16 @@
     body{
 
         background-color: #1E1E1E;
-        /* opacity: 0; 
-        transition: opacity 0.5s ease-in-out; */
+        opacity: 0; 
+        transition: opacity 0.5s ease-in-out;
 
     }
 
-    /* body.fade-in {
+    body.fade-in {
 
         opacity: 1;
 
-    } */
+    }
 
     main{
 
@@ -188,36 +188,36 @@
 
 <script>
     
-    if (sessionStorage.getItem('animarEntrada')) 
-    {
-
-      document.documentElement.classList.add('entrada');
-      sessionStorage.removeItem('animarEntrada');
-
-    }
-
-    // window.addEventListener('load', function () {
-    //     document.body.classList.add('fade-in');
-    // });
-
-    // document.querySelectorAll('.link-navbar').forEach(link => 
+    // if (sessionStorage.getItem('animarEntrada')) 
     // {
 
-    //     link.addEventListener('click', function (e) 
-    //     {
+    //   document.documentElement.classList.add('entrada');
+    //   sessionStorage.removeItem('animarEntrada');
 
-    //         e.preventDefault();
-    //         document.body.classList.add('fade-animacao');
+    // }
 
-    //         setTimeout(() => 
-    //         {
+    window.addEventListener('load', function () {
+        document.body.classList.add('fade-in');
+    });
 
-    //             window.location.href = this.href;
+    document.querySelectorAll('.link-navbar').forEach(link => 
+    {
 
-    //         }, 800);
+        link.addEventListener('click', function (e) 
+        {
 
-    //     });
+            e.preventDefault();
+            document.body.classList.add('fade-animacao');
 
-    // });
+            setTimeout(() => 
+            {
+
+                window.location.href = this.href;
+
+            }, 800);
+
+        });
+
+    });
 
 </script>

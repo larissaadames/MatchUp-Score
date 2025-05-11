@@ -11,8 +11,17 @@
 
         <nav class="navbar">
 
-            <a class="link-navbar" href="login.html">Login</a>
-            <a class="link-navbar" href="https://pucpr.instructure.com/">Cadastro</a>
+            <div>
+
+                <a class="link-navbar" href="login.html">Login</a>
+
+            </div>
+
+            <div>
+
+                <a class="link-navbar" href="https://pucpr.instructure.com/">Cadastro</a>
+
+            </div>
 
         </nav>
 
@@ -20,9 +29,28 @@
 
     <main>
 
+        <video autoplay muted loop class="video-quadras-esportivas-fundo">
+
+            <source src="imagens/fundo-quadras-esportivas.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="overlay"></div>
+
         <section>
 
             <img class="logo" alt="MatchUpScore logo" src="imagens/matchuplogo.png"/>
+
+        </section>
+
+        <section>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
 
         </section>
 
@@ -45,36 +73,87 @@
 
         margin: 0;
         height: 100vh;
-        background-color: #02201D;
+        /* background-color: #02201D;
         background:
         radial-gradient(circle at top right, #34675C 0%, #001a1370 30%),
         radial-gradient(circle at bottom left, #34675C 0%, #001a1370 30%),
-        radial-gradient(circle at center, #02201D 0%, #000000 100%);
+        radial-gradient(circle at center, #02201D 0%, #000000 100%); */
         transition: transform 0.6s ease-in-out;
+
 
     }
 
-    body.deslizamento-animacao {
+    body.fade-animacao {
         /* .deslizamento-animacao */
-        transform: translateX(-100%);
-        /*.fade-animacao */
-        /*   
+        /* transform: translateX(-100%); */
+        /*.c */
+          
         opacity: 0;
-        transition: opacity 0.5s ease; */
+        transition: opacity 0.5s ease;
+        background-color: rgba(0, 0, 0, 0.8);
 
     }
 
     main{
 
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
     }
 
+    main section{
+
+        margin: 0;
+        padding: 0;
+
+    }
+
+    main section p{
+
+        color: white;
+        text-align: center;
+        margin-top: -6em;
+        width: 100%;
+        max-width: 90em;
+        letter-spacing: 1px;
+
+    }
+
+    .video-quadras-esportivas-fundo{
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        z-index: -1; /* Faz o vídeo ficar ao fundo */
+        opacity: 0.4; /* Deixa mais transparente */
+        transform: scale(1.5);
+
+    }
+
+    .overlay{
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8); /* 0.8 é bem escuro. Use 1 para preto total */
+        z-index: -1;
+
+    }
+
     .logo{
 
-        width: 700px;
+        width: 100%;
+        max-width: 900px;
+        height: auto; 
+        display: block;
+        margin: 0 auto;
 
     }
 
@@ -82,15 +161,32 @@
 
         display: flex;
         justify-content: right;
-        background-color: #0000003b;
+        padding: 10px;
 
     }
 
-    .navbar a{
+    .navbar div{
 
+        transition: 0.5s;
         padding: 10px;
+        margin-left: 10px;
+        border-radius: 20px;
+        border: 1px solid #02201D;
+        /* background: radial-gradient(circle at top right, #02201D, #34675C); */
+
+    }
+
+    .navbar div:hover{
+
+        transition: 0.5s;
+        background-color: #02201D;
+    }
+
+    .navbar div a{
+
         font-size: 18px;
         color: white;
+        text-decoration: none;
 
     }
 
@@ -105,7 +201,7 @@
         {
             e.preventDefault();
             sessionStorage.setItem('animarEntrada', 'true'); 
-            document.body.classList.add('deslizamento-animacao');
+            document.body.classList.add('fade-animacao');
 
             setTimeout(() => 
             {
