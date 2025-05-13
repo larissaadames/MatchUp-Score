@@ -41,7 +41,7 @@
                 <button type="button" onclick="window.location.href = '#' " class="create-matchup"><i class="fa-solid fa-plus"></i> Criar MatchUp</button>
                 <i class="fa-regular fa-bell"></i>
                 <i class="fa-solid fa-user"></i>
-
+                
             </div>
 
         </nav>
@@ -50,9 +50,96 @@
 
     <main>
 
-        <section>
+        <section class="sobre-quadras">
 
-            <p>dsaads</p>
+            <div class="lado-esquerdo">
+
+                <div class="imagens-display">
+
+                    <div class="slides-quadras fade">
+
+                        <img src="imagens/teste-teste.gif">
+
+                    </div>
+
+                    <div class="slides-quadras fade">
+
+                        <img src="imagens/teste2.gif">
+
+                    </div>
+
+                    <a class="prev" onclick="proximoSlide(-1)">❮</a>
+                    <a class="next" onclick="proximoSlide(1)">❯</a>
+
+                </div>
+
+                <div class="nome-quadra-avaliacao-botao-div">
+
+                    <div class="nome-quadra-avaliacao-div">
+
+                        <h2>Quadra do Ney</h2>
+
+                        <div>
+
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #3b3b3b;"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="botao-reservar-div">
+
+                        <button type="button" onclick="window.location.href='#'">Reservar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="lado-direito">
+
+                <div class="mapa-quadra">
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.601913429184!2d-49.25532212387553!3d-25.451569277548067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4fa6efc3181%3A0x8b0f452491a6f477!2sPUCPR%20-%20Pontif%C3%ADcia%20Universidade%20Cat%C3%B3lica%20do%20Paran%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1747157740176!5m2!1spt-BR!2sbr" 
+                        width="550" 
+                        height="400"
+                        style="border-radius:30px; border-style: none;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                    <p>Rua: R. Lorem Ipsum 1234 - Bairro Alto</p>
+
+                </div>
+
+                <div class="texto-descricao-quadra">
+
+                    <p>
+                        
+                        Lorem Ipsum is simply dummy text of the printing and  typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="avaliacoes">
+
+            <div>
+
+                <p>asjda</p>
+
+            </div>
 
         </section>
 
@@ -78,6 +165,32 @@
         background-color: #242322;
         margin: 0;
         
+    }
+
+    main {
+    display: flex;
+    flex-direction: column; /* Organiza as sections em uma coluna */
+    height: 100vh; /* Faz o main ocupar toda a altura da página */
+}
+
+    .sobre-quadras{
+
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+
+    }
+
+    .avaliacoes{
+
+        background-color: #D9D9D9;
+        height: auto;
+        width: 100%;
+        flex-grow: 1;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        box-sizing: border-box;
+
     }
 
     nav{
@@ -180,6 +293,14 @@
         position: relative;
         text-decoration: none;
         color: white;
+        transition: 0.5s;
+
+    }
+
+    .links-centro-nav li a:hover{
+
+        transition: 0.5s;
+        color: #34675C;
 
     }
 
@@ -254,4 +375,202 @@
 
     }
 
+    section{
+
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 5em;
+
+    }
+
+    .lado-direito{
+
+        width: min-content;
+
+    }
+
+    .mapa-quadra{
+
+        background-color: #34675C;
+        width: min-content;
+        padding-bottom: 10px;
+        border-radius: 30px;
+        text-align: center;
+
+    }
+
+    .mapa-quadra p{
+
+        text-align: center;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+
+
+    }
+
+    .texto-descricao-quadra p{
+
+        text-align: center;
+        font-size: 24px;
+        font-family: "Montserrat", sans-serif;
+        color: white;
+
+    }
+
+    .nome-quadra-avaliacao-botao-div{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .nome-quadra-avaliacao-div h2{
+
+        font-size: 40px;
+        color: white;
+        margin-bottom: 15px;
+
+    }
+
+    .nome-quadra-avaliacao-div i{
+
+        font-size: 25px;
+
+    }
+
+    .botao-reservar-div button{
+
+        background-color: #34675C;
+        height: 59px;
+        width: 287.54px;
+        font-size: 24px;
+        color: white;
+        border-style: none;
+        border-radius: 30px;
+        transition: 0.5s;
+        cursor: pointer;
+
+    }
+
+    .botao-reservar-div button:hover{
+
+        transition: 0.5s;
+        background-color: #053D38;
+
+    }
+
+    .imagens-display {
+
+        position: relative;
+        width: 725px; 
+        height: auto;
+
+    }
+
+    .slides-quadras {
+        
+        display: none;
+        position: relative;
+        width: 100%;
+
+    }
+
+    .slides-quadras img {
+
+        width: 100%;
+        height: 100%;
+        width: 725px;
+        max-height: 600px;
+        object-fit: cover;
+        border-radius: 20px;
+        
+    }
+
+    .imagens-display .prev, .imagens-display .next {
+
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        padding: 16px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        transition: 0.5s;
+        background-color: rgba(0,0,0,0.4);
+        border-radius: 10px;
+        z-index: 10;
+
+    }
+
+    .imagens-display .prev {
+
+        left: 0;
+
+    }
+
+    .imagens-display .next {
+
+        right: 0;
+
+    }
+
+    .imagens-display .prev:hover, .imagens-display .next:hover {
+
+        background-color: rgba(0,0,0,0.8);
+
+    }
+
+    .avaliacoes{
+
+        background-color: #D9D9D9;
+
+    }
+
 </style>
+
+<script>
+
+    let slideIndex = 1;
+    mostrarSlides(slideIndex);
+
+    function proximoSlide(n) 
+    {
+
+        mostrarSlides(slideIndex += n);
+
+    }
+
+    function mostrarSlides(n) 
+    {
+
+        let i;
+        let slides = document.getElementsByClassName("slides-quadras");
+
+        if (n > slides.length)
+        { 
+            
+            slideIndex = 1 
+        
+        }
+
+        if (n < 1) 
+        { 
+
+            slideIndex = slides.length 
+        
+        }
+
+        for (i = 0; i < slides.length; i++) 
+        {
+
+            slides[i].style.display = "none";
+
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        
+    }
+
+</script>
