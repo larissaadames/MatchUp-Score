@@ -11,17 +11,13 @@
 
         <nav class="navbar">
 
-            <div>
+            <ul>
 
-                <a class="link-navbar" href="login.html">Login</a>
+                <li><a class="link-navbar" href="login.html">Login</a></li>
 
-            </div>
+                <li><a class="link-navbar" href="cadastro.html">Cadastro</a></li>
 
-            <div>
-
-                <a class="link-navbar" href="cadastro.html">Cadastro</a>
-
-            </div>
+            </ult>
 
         </nav>
 
@@ -166,8 +162,18 @@
 
     }
 
-    .navbar div{
+    .navbar ul{
 
+        list-style: none;
+        display: flex;         
+        gap: 10px;             
+        padding: 0;            
+
+    }
+
+    .navbar li{
+
+        text-decoration: none;
         transition: 0.5s;
         padding: 10px;
         margin-left: 10px;
@@ -177,13 +183,13 @@
 
     }
 
-    .navbar div:hover{
+    .navbar li:hover{
 
         transition: 0.5s;
         background-color: #34675C;
     }
 
-    .navbar div a{
+    .navbar li a{
 
         font-size: 18px;
         color: white;
