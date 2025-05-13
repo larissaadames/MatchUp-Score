@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +38,7 @@
 
             <div class="perfil-nav">
 
-                <button type="button" onclick="window.location.href = '#' " class="create-matchup"><i class="fa-solid fa-plus"></i> Criar MatchUp</button>
+                <button type="button" onclick="window.location.href = '#' " class="criar-matchup"><i class="fa-solid fa-plus"></i> Criar MatchUp</button>
                 <i class="fa-regular fa-bell"></i>
                 <i class="fa-solid fa-user"></i>
                 
@@ -135,9 +135,106 @@
 
         <section class="avaliacoes">
 
+            <h1>Avaliações</h1>
+
             <div>
 
-                <p>asjda</p>
+                <div class="avaliacao-total">
+
+                    <h2>4.2<span>/5</span></h2>
+                    <p>Nota do espaço</p>
+
+                </div>
+
+                <div class="porcentagem-avaliacao">
+
+                    <span>90%</span>
+
+                    <p>Dos clientes recomendam esse espaço</p>
+
+                </div>
+
+                <div class="avaliar-quadra-div">
+
+                    <input type="text" class="input-avaliar-quadra" placeholder="Faça a sua avaliação aqui: "/>
+                    <i class="fa-solid fa-plus"></i>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="avaliacao-usuario">
+
+                    <div class="usuario-nome-foto">
+
+                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
+                        
+                        <h2>Pelé</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+
+                    
+                    <p>
+                        
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                    </p>
+
+                </div>
+
+                <div class="avaliacao-usuario">
+
+                    <div class="usuario-nome-foto">
+
+                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
+                        
+                        <h2>Bolsonaro</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+
+                    
+                    <p>
+                        
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                    </p>
+
+                </div>
+
+                <div class="avaliacao-usuario">
+
+                    <div class="usuario-nome-foto">
+
+                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
+
+                        <h2>Lady Gaga</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+
+                    <p>
+                        
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -169,8 +266,8 @@
 
     main {
     display: flex;
-    flex-direction: column; /* Organiza as sections em uma coluna */
-    height: 100vh; /* Faz o main ocupar toda a altura da página */
+    flex-direction: column;
+    height: 100vh;
 }
 
     .sobre-quadras{
@@ -525,8 +622,130 @@
     .avaliacoes{
 
         background-color: #D9D9D9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
     }
+
+    .avaliacao-total{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -8em;
+
+    }
+
+    .avaliacoes h1{
+    
+        margin:40px;
+        font-size: 35px;
+
+    }
+
+    .avaliacao-total h2{
+
+        font-size: 80px;
+
+    }
+
+    .avaliacao-total span{
+
+        font-size: 60px;
+
+    }
+
+    .avaliacao-total p{
+
+        font-family: "Montserrat", sans-serif;
+        margin-top: -5em;
+
+    }
+
+    .porcentagem-avaliacao{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5em;
+
+    }
+
+    .porcentagem-avaliacao span{
+
+        font-size: 40px;
+        padding: 20px;
+        border: 8px solid #34675C;
+        border-radius: 50%;
+
+    }
+
+    .porcentagem-avaliacao p{
+
+        font-family: "Montserrat", sans-serif;
+
+    }
+
+    .avaliar-quadra-div{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        margin-top: 50px;
+
+    }
+
+    .input-avaliar-quadra{
+
+        border-radius: 20px;
+        border-style: none;
+        padding: 10px;
+        width: 40vw;
+        font-family: "Montserrat", sans-serif;
+
+    }
+    
+    .avaliar-quadra-div i{
+
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        background-color: #34675C;
+        border-radius: 50%;
+        padding: 4px;
+
+    }
+
+    .avaliacao-usuario{
+
+        background-color: white;
+        margin-bottom: 4em;
+        border-radius: 40px;
+        padding: 20px;
+        width: 40vm;
+        max-width: 600px;
+
+    }
+
+    .usuario-nome-foto{
+
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1em;
+    
+    }
+
+    .usuario-avaliacao-foto{
+
+        font-size: 30px;
+
+    }
+
 
 </style>
 
