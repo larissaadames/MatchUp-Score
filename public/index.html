@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Página Inicial - Matchups</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,7 +19,7 @@
                 </ul>
             </nav>
             <div class="search">
-                <input type="text" placeholder="Pesquisar Quadra ou Região">
+                <input type="text" placeholder="Pesquisar Quadra do Ney" />
                 <button>Buscar</button>
             </div>
         </div>
@@ -45,20 +45,31 @@
             <h2>CRIAR MATCHUP</h2>
             <form id="formMatchup" onsubmit="criarMatchup(event)">
                 <label for="nome">Nome da Matchup:</label>
-                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="nome" name="nome" required />
 
-                <label for="espaco">Espaço:</label>
-                <select id="espaco" name="espaco" required>
-                    <option value="Espaço 1">Espaço 1</option>
-                    <option value="Espaço 2">Espaço 2</option>
+                <label for="esporte">Esporte:</label>
+                <select id="esporte" name="esporte" required>
+                    <option value="Futebol">Futebol</option>
+                    <option value="Futsal">Futsal</option>
+                    <option value="Volei">Volei</option>
+                    <option value="Basquete">Basquete</option>
+                    <option value="Kart">Kart</option>
                 </select>
 
-                <label for="data">Horários Disponíveis:</label>
-                <input type="date" id="data" name="data" placeholder="dd/mm/aa" required>
-                <input type="number" id="hora" name="hora" placeholder="hh:mm" required>
+                <label for="reserva">Quadra:</label>
+                <select id="reserva" name="reserva" required>
+                    <option value="Quadra do Ney">Quadra do Ney</option>
+                    <option value="Quadra do Messi">Quadra do Messi</option>
+                </select>
+
+                <label for="data">Data:</label>
+                <input type="text" id="data" name="data" readonly />
+
+                <label for="hora">Hora:</label>
+                <input type="text" id="hora" name="hora" readonly />
 
                 <label for="capacidade">Capacidade Disponível:</label>
-                <input type="number" id="capacidade" name="capacidade" required>
+                <input type="number" id="capacidade" name="capacidade" min="1" required />
 
                 <button type="submit">Salvar</button>
                 <button type="button" class="cancel" onclick="fecharPopUp()">Cancelar</button>

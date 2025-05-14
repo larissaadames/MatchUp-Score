@@ -40,150 +40,166 @@ header {
     text-decoration: none;
 }
 
-.search input {
-    padding: 10px;
-    font-size: 1em;
+.navbar nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.search input[type="text"] {
+    padding: 0.4rem 0.6rem;
+    border: none;
+    border-radius: 0;
+    width: 200px;
+    font-size: 0.9rem;
 }
 
 .search button {
-    padding: 10px;
-    font-size: 1em;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #22c55e; /* verde */
     border: none;
+    color: white;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
-.search button:hover {
-    background-color: #45a049;
-}
-
-/* Cartões de matchups */
 main {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main h2 {
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .quadras {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    gap: 1rem;
 }
 
 .quadra-card {
-    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     width: 280px;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    background: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .quadra-card img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 160px;
+    object-fit: cover;
 }
 
 .quadra-card h3 {
-    font-size: 1.2em;
-    margin-top: 10px;
+    margin: 0.75rem 1rem 0.25rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .quadra-card p {
-    font-size: 0.9em;
-    color: #555;
+    margin: 0 1rem 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #444;
 }
 
 .rating {
-    margin-top: 10px;
-    color: #ffb400;
+    margin: 0 1rem 1rem 1rem;
+    color: #f59e0b; /* amarelo */
+    font-size: 1rem;
 }
 
-.quadra-card:hover {
-    transform: scale(1.05);
-}
-
-/* Botão Criar MatchUp */
 footer {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    text-align: center;
+    margin: 2rem 0;
 }
 
 .btn-criar {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 30px;
+    background-color: #22c55e;
     border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-.btn-criar:hover {
-    background-color: #45a049;
-}
-
-/* Estilo do pop-up */
+/* Pop-up e overlay */
 .overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay.active {
+    display: flex;
 }
 
 .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f1f1f1;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    width: 400px;
-    z-index: 1000;
-}
-
-.popup input, .popup select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.popup button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.popup button.cancel {
-    background-color: #f44336;
-}
-
-.popup button:hover {
-    opacity: 0.9;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
     cursor: pointer;
+    color: #555;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button[type="submit"] {
+    margin-top: 1.5rem;
+    background-color: #22c55e;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+form button.cancel {
+    margin-top: 0.5rem;
+    background-color: #ccc;
+    border: none;
     color: #333;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
 }
