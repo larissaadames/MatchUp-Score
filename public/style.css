@@ -32,21 +32,3 @@ header{
     align-items: center;
     z-index: 999;
 }
-.topHeader{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
-}
-.centroHeader{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-.barraPesquisa{
-    display: flex;
-    justify-content: center;
-    width: auto;
-}

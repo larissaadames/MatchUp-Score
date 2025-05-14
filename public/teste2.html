@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MatchUp Community</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+    <link href="teste3.css" rel="stylesheet" />
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="menu-button">
+            <button aria-label="Menu" class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <form class="search-form">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="PESQUISAR QUADRILHA OU REGIÃO" />
+                <button type="submit" aria-label="Search" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        <div class="action-buttons">
+            <button class="create-button">
+                <span class="text-xl">+</span>
+                <span class="font-semibold">Criar MatchUp</span>
+            </button>
+            <button aria-label="Notifications" class="icon-button">
+                <i class="fas fa-bell"></i>
+            </button>
+            <button aria-label="User Profile" class="icon-button">
+                <i class="fas fa-user-circle"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <nav class="main-nav">
+            <a href="#" class="active">COMUNIDADE</a>
+            <a href="#" class="inactive">ENTRAR MATCHUP</a>
+        </nav>
+
+        <section class="event-grid" aria-label="Community MatchUp Events">
+            <!-- Repeatable Event Card -->
+            <article class="event-card">
+                <img src="https://storage.googleapis.com/a1aa/image/f6bbd769-54b5-4acc-f843-8d08ec5b14da.jpg" alt="Orange vintage car at a drag race event" class="event-image" width="320" height="180" />
+                <div class="p-4">
+                    <h2 class="event-title">PROVA DE ARRANCADA</h2>
+                    <p class="event-location">Rua. Caravan do Alemão - 1978</p>
+                    <p class="event-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <button class="event-button">INSCREVA - SE</button>
+                </div>
+            </article>
+            <!-- Duplicate the article as needed -->
+        </section>
+    </main>
+</body>
+
+</html>
