@@ -1,143 +1,178 @@
-// Função para exibir o pop-up
+const usuarioAtualId = 42;
+
+const reservasUsuario = [
+  // FUTEBOL
+  { id: 1, userId: 42, quadra: "Arena Central", esporte: "Futebol", data: "25/05/2025", hora: "19:00" },
+  { id: 2, userId: 42, quadra: "Campo Verde", esporte: "Futebol", data: "28/05/2025", hora: "20:00" },
+
+  // FUT7 (SINTÉTICO)
+  { id: 3, userId: 42, quadra: "Sintético A", esporte: "Fut7", data: "30/05/2025", hora: "18:00" },
+  { id: 4, userId: 42, quadra: "Sintético B", esporte: "Fut7", data: "31/05/2025", hora: "20:00" },
+
+  // VOLEI
+  { id: 5, userId: 42, quadra: "Ginásio Leste", esporte: "Volei", data: "01/06/2025", hora: "16:00" },
+  { id: 6, userId: 42, quadra: "Praia Norte", esporte: "Volei", data: "03/06/2025", hora: "15:00" },
+
+  // BASQUETE
+  { id: 7, userId: 42, quadra: "Quadra Coberta 1", esporte: "Basquete", data: "05/06/2025", hora: "17:00" },
+  { id: 8, userId: 42, quadra: "Centro Esportivo Sul", esporte: "Basquete", data: "07/06/2025", hora: "18:30" },
+
+  // KART
+  { id: 9, userId: 42, quadra: "Kart Track 1", esporte: "Kart", data: "10/06/2025", hora: "17:00" },
+  { id: 10, userId: 42, quadra: "Kart Arena Norte", esporte: "Kart", data: "12/06/2025", hora: "19:00" },
+
+  // FUTSAL
+  { id: 11, userId: 42, quadra: "Futsal Clube", esporte: "Futsal", data: "15/06/2025", hora: "20:00" },
+  { id: 12, userId: 42, quadra: "Futsal Indoor", esporte: "Futsal", data: "17/06/2025", hora: "21:00" }
+];
+
 function mostrarPopUp() {
-    // Preenche data e hora atuais no formulário
-    const now = new Date();
-    const dataInput = document.getElementById('data');
-    const horaInput = document.getElementById('hora');
-
-    dataInput.value = now.toLocaleDateString('pt-BR');
-    horaInput.value = now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
-
-    document.getElementById('overlay').classList.add('active');
+  document.getElementById("overlay").classList.add("active");
 }
 
-// Função para fechar o pop-up
 function fecharPopUp() {
-    document.getElementById('overlay').classList.remove('active');
-    document.getElementById('formMatchup').reset();
+  document.getElementById("overlay").classList.remove("active");
+  document.getElementById("formMatchup").reset();
+  document.getElementById("reserva").innerHTML = "";
+  document.getElementById("quadra").value = "";
+  document.getElementById("data").value = "";
+  document.getElementById("hora").value = "";
 }
 
-// Função para criar uma nova matchup e exibir o card
+function filtrarReservasPorEsporte() {
+  const esporteSelecionado = document.getElementById("esporte").value;
+  const select = document.getElementById("reserva");
+  select.innerHTML = "";
+
+  const reservasFiltradas = reservasUsuario.filter(r =>
+    r.userId === usuarioAtualId &&
+    r.esporte === esporteSelecionado &&
+    isDataFutura(r.data)
+  );
+
+  reservasFiltradas.forEach(r => {
+    const option = document.createElement("option");
+    option.value = r.id;
+    option.textContent = `${r.quadra} (${r.data} ${r.hora})`;
+    select.appendChild(option);
+  });
+
+  preencherCamposFixos();
+}
+
+function preencherCamposFixos() {
+  const id = parseInt(document.getElementById("reserva").value);
+  const reserva = reservasUsuario.find(r => r.id === id);
+  if (!reserva) return;
+
+  document.getElementById("quadra").value = reserva.quadra;
+  document.getElementById("data").value = reserva.data;
+  document.getElementById("hora").value = reserva.hora;
+
+  const capacidadeMax = obterCapacidadeMaxima(reserva.esporte);
+  document.getElementById("capacidade").max = capacidadeMax;
+}
+
 function criarMatchup(event) {
-    event.preventDefault(); // Previne o envio do formulário
+  event.preventDefault();
 
-    // Pegando os dados do formulário
-    const nome = document.getElementById('nome').value;
-    const esporte = document.getElementById('esporte').value;
-    const reserva = document.getElementById('reserva').value; // Captura da reserva
-    const data = document.getElementById('data').value;
-    const hora = document.getElementById('hora').value;
-    const capacidade = parseInt(document.getElementById('capacidade').value, 10);
+  const id = parseInt(document.getElementById("reserva").value);
+  const reserva = reservasUsuario.find(r => r.id === id);
+  const nome = document.getElementById("nome").value;
+  const capacidade = parseInt(document.getElementById("capacidade").value);
 
-    if (capacidade <= 0) {
-        alert("A capacidade deve ser um número positivo.");
-        return;
-    }
+  const capacidadeMax = obterCapacidadeMaxima(reserva.esporte);
+  if (capacidade <= 0 || capacidade > capacidadeMax) {
+    alert(`Capacidade inválida. Máximo permitido para ${reserva.esporte} é ${capacidadeMax}.`);
+    return;
+  }
 
-    if (!reserva) {
-        alert("Por favor, selecione uma quadra.");
-        return;
-    }
+  const novaMatchup = {
+    userId: usuarioAtualId,
+    idReserva: id,
+    nome: nome,
+    quadra: reserva.quadra,
+    esporte: reserva.esporte,
+    data: reserva.data,
+    hora: reserva.hora,
+    capacidade: capacidade,
+    capacidadeMaxima: capacidadeMax,
+    imagem: getImagemPorEsporte(reserva.esporte)
+  };
 
-    // Recuperando as matchups do Local Storage
-    let matchups = JSON.parse(localStorage.getItem('matchups')) || [];
+  const matchups = JSON.parse(localStorage.getItem("matchups")) || [];
+  matchups.push(novaMatchup);
+  localStorage.setItem("matchups", JSON.stringify(matchups));
 
-    // Obter a capacidade máxima com base no esporte selecionado
-    const capacidadeMaxima = obterCapacidadeMaxima(esporte);
-
-    if (capacidade > capacidadeMaxima) {
-        alert(`A capacidade máxima para o esporte ${esporte} é ${capacidadeMaxima}.`);
-        return;
-    }
-
-    // Criando a nova matchup
-    const novaMatchup = {
-        nome: nome,
-        esporte: esporte,
-        reserva: reserva,
-        data: data,
-        hora: hora,
-        capacidade: capacidade,
-        capacidadeMaxima: capacidadeMaxima,
-        quadra: getQuadraInfo(reserva) // Adiciona a quadra associada ao matchup
-    };
-
-    // Adicionando a nova matchup ao array
-    matchups.push(novaMatchup);
-
-    // Atualizando o Local Storage com as novas matchups
-    localStorage.setItem('matchups', JSON.stringify(matchups));
-
-    // Fechar o pop-up
-    fecharPopUp();
-
-    // Atualizar os cards
-    exibirMatchups();
+  fecharPopUp();
+  exibirMatchups();
 }
 
-// Função para obter as informações da quadra com base no nome
-function getQuadraInfo(reserva) {
-    const quadras = {
-        'Quadra do Ney': {
-            imagem: 'https://via.placeholder.com/300x200?text=Quadra+do+Ney',
-            endereco: 'Rua NeymarCansado- 195'
-        },
-        'Quadra do Messi': {
-            imagem: 'https://via.placeholder.com/300x200?text=Quadra+do+Messi',
-            endereco: 'Rua Messi- 100'
-        }
-    };
-
-    if (!quadras[reserva]) {
-        return { imagem: 'https://via.placeholder.com/300x200?text=Quadra+Desconhecida', endereco: 'Endereço desconhecido' };
-    }
-
-    return quadras[reserva];
-}
-
-// Função para obter a capacidade máxima com base no esporte
-function obterCapacidadeMaxima(esporte) {
-    const capacidades = {
-        'Futebol': 22,
-        'Futsal': 10,
-        'Volei': 12,
-        'Basquete': 10,
-        'Kart': 4
-    };
-
-    return capacidades[esporte] || 10; // Caso o esporte não esteja listado, assume 10 como padrão
-}
-
-// Função para exibir os cards das matchups
 function exibirMatchups() {
-    const matchupCardsContainer = document.getElementById('matchup-cards');
-    matchupCardsContainer.innerHTML = ''; // Limpa os cards existentes
+  const container = document.getElementById("matchup-cards");
+  container.innerHTML = "";
 
-    let matchups = JSON.parse(localStorage.getItem('matchups')) || [];
+  const matchups = JSON.parse(localStorage.getItem("matchups")) || [];
 
-    if (matchups.length === 0) {
-        matchupCardsContainer.innerHTML = "<p>Nenhuma matchup criada ainda.</p>";
-        return;
-    }
+  const futurasDoUsuario = matchups.filter(m =>
+    m.userId === usuarioAtualId && isDataFutura(m.data)
+  );
 
-    matchups.forEach(matchup => {
-        const card = document.createElement('div');
-        card.classList.add('quadra-card');
+  if (futurasDoUsuario.length === 0) {
+    container.innerHTML = "<p>Nenhuma matchup futura encontrada.</p>";
+    return;
+  }
 
-        card.innerHTML = `
-            <img src="${matchup.quadra.imagem}" alt="Imagem da quadra ${matchup.nome}">
-            <h3>${matchup.nome}</h3>
-            <p>Quadra: ${matchup.quadra.endereco}</p>
-            <p>Data: ${matchup.data} - Hora: ${matchup.hora}</p>
-            <p>Capacidade: ${matchup.capacidade} / ${matchup.capacidadeMaxima}</p>
-            <div class="rating">★★★★★</div>
-        `;
+  futurasDoUsuario.forEach(m => {
+    const card = document.createElement("div");
+    card.classList.add("quadra-card");
 
-        matchupCardsContainer.appendChild(card);
-    });
+    card.innerHTML = `
+      <img src="${m.imagem}" alt="Imagem ${m.esporte}" />
+      <h3>${m.nome}</h3>
+      <p>Quadra: ${m.quadra}</p>
+      <p>Data: ${m.data} - Hora: ${m.hora}</p>
+      <p>Capacidade: ${m.capacidade} / ${m.capacidadeMaxima}</p>
+      <div class="rating">★★★★★</div>
+    `;
+
+    container.appendChild(card);
+  });
 }
 
-// Carregar as matchups quando a página for carregada
-window.onload = function() {
-    exibirMatchups();
-};
+function obterCapacidadeMaxima(esporte) {
+  const capacidades = {
+    Futebol: 22,
+    Fut7: 14,
+    Futsal: 10,
+    Volei: 12,
+    Basquete: 10,
+    Kart: 20
+  };
+  return capacidades[esporte] || 10;
+}
+
+function getImagemPorEsporte(esporte) {
+  const imagens = {
+    Futebol: "imagens/futebol.jpg",
+    Futsal: "imagens/futsal.jpg",
+    Fut7: "imagens/sintetico.jpg",
+    Basquete: "imagens/basquete.jpg",
+    Kart: "imagens/kart.jpg",
+    Volei: "imagens/volei.jpg"
+  };
+
+  console.log("Esporte recebido:", esporte); // debug
+
+  return imagens[esporte] || "imagens/futebol.jpg";
+}
+
+
+function isDataFutura(dataStr) {
+  const hoje = new Date();
+  const [dia, mes, ano] = dataStr.split('/');
+  const data = new Date(ano, mes - 1, dia);
+  return data >= hoje;
+}
+
+window.onload = () => exibirMatchups();
