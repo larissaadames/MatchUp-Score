@@ -23,6 +23,8 @@ header{
     display: flex;
     align-items: center;
     padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+    z-index: 1000;
 }
 header input[type="text"] {
     position: absolute;
@@ -49,15 +51,39 @@ nav {
     justify-content: center;
     gap: 20px;
     align-items: center;
-    background-color: #dcdcdc;
+    background-color: var(--cor-back-1);
     flex-wrap: wrap;
     
 }
 
+nav button{
+    background-color: transparent;
+    color: var(--cor-2);
+}
+nav button:hover{
+    color: gray;
+}
+
+nav button::after{
+
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; 
+    background-color: var(--cor-2);
+    border-radius: 2px;
+
+}
 button{
     background-color: var(--cor-1);
     border: none;
     border-radius: 10px;
+}
+nav button{
+    position: relative;
+
 }
 button:hover{
     background-color: aquamarine;
