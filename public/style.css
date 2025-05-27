@@ -3,10 +3,11 @@
 *{
     margin: 0;
     font-family: "Bebas Neue", sans-serif;
+
 }
 
 body{
-
+    background-color: var(--cor-back-1);
     --cor-back-1:#242322;
     --cor-1:#34675C;
     --cor-2:#D9D9D9;
@@ -61,4 +62,27 @@ button{
 button:hover{
     background-color: aquamarine;
 
+}
+
+.Top, .bottom{
+    padding: 50px;
+    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.c1t, .c2t, .c3t, .c1b, .c2b, .c3b{
+    text-align: center;
+    border-radius: 28px;
+    background-color: var(--cor-2);
+    width: 350px;
+}
+img{
+    width: 350px;
+    border-top-left-radius: 28px ;
+    border-top-right-radius: 28px ;
+}
+.c1t button, .c2t button, .c3t button, .c1b button, .c2b button, .c3b button{
+    color: var(--cor-2);
 }
