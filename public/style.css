@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
+*{
+    margin: 0;
+    font-family: "Bebas Neue", sans-serif;
+}
 
 body{
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+
     --cor-back-1:#242322;
     --cor-1:#34675C;
     --cor-2:#D9D9D9;
@@ -14,7 +14,9 @@ body{
 }
 
 header{
-    position: relative;
+    position: fixed; 
+    left: 0;
+    right: 0;
     height: 60px;
     background-color: var(--cor-back-1);
     display: flex;
@@ -27,6 +29,7 @@ header input[type="text"] {
     transform: translateX(-50%);
     width: 250px;
     padding: 6px 10px;
+    border-radius: 50px;
 }
 header button:first-of-type {
     margin-right: auto; /* empurra os outros para a direita */
@@ -39,9 +42,23 @@ header button:nth-of-type(4) {
 }
 
 nav {
+    padding-bottom: 20px;
+    padding-top: 80px;
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 10px;
+    align-items: center;
     background-color: #dcdcdc;
+    flex-wrap: wrap;
+    
+}
+
+button{
+    background-color: var(--cor-1);
+    border: none;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: aquamarine;
+
 }
