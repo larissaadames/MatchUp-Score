@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+*{
+
+    font-family: "Bebas Neue", sans-serif;
+
+}
+
+header{
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+
+}
+
+body {
+    background-color: #242322;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+.navbar {
+
+    background-color: #242322;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    padding: 1rem 2rem;
+
+}
+
+.logo i{
+
+    font-size: 40px;
+
+}
+
+.deco-lado-direito ul i{
+
+    padding-left: 20px;
+
+}
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  nav ul li a::after{
+    
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; 
+    background-color: #ffffff;
+    border-radius: 2px;
+
+  }
+
+  nav ul li a {
+    padding-bottom: 5px;
+    position: relative;
+    color: white;
+    text-decoration: none;
+  }
+
+  .search{
+
+    position: relative;
+
+  }
+  
+  .search input {
+
+    border-radius: 20px;
+    width: 20vw;
+    padding: 0.5rem;
+  }
+  
+  .search button {
+
+    position: absolute;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    padding-left: 22px;
+    top: 17%;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    right: 0;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    background-color: #363432;
+    transition: 0.5s;
+
+  }
+  
+  main {
+    
+    padding: 2rem;
+  }
+
+  main h2{
+
+    margin-bottom: 2em;
+    color: white;
+
+  }
+  
+  .quadras {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .quadra-card {
+    background-color: antiquewhite;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 1rem;
+    width: 250px;
+  }
+  
+  .quadra-card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .popup {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .overlay.active {
+    display: flex;
+  }
+  
+  form input,
+  form select {
+
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+
+  }
+  
+  form div{
+
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+  }
+
+  form span{
+
+    font-size: 30px;
+
+  }
+
+  form button {
+    
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.5rem;
+
+  }
+
+footer{
+
+    display: flex;
+    margin-bottom: 3em;
+    justify-content: center;
+
+}
+
+.btn-criar{
+
+    align-self: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+  
