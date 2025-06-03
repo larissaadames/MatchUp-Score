@@ -5,7 +5,6 @@
 *{
     margin: 0;
     font-family: "Bebas Neue", sans-serif;
-
 }
 
 body{
@@ -17,73 +16,92 @@ body{
 }
 
 header{
-
     position: fixed; 
     left: 0;
     right: 0;
     height: 60px;
     background-color: var(--cor-back-1);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
+    display: flex; /* Essencial para o layout flexível */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    padding: 0 15px; /* Padding nas laterais do header */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
     z-index: 1000;
-    justify-content: center;
-    gap: 10px;
-
+    gap: 10px; /* Espaçamento uniforme entre os itens diretos do header */
 }
 
-header i{
-
+/* Ícone de menu (sanduíche) - Esquerda */
+header .fa-bars{
     color: var(--cor-2);
     font-size: 25px;
-    padding-left: 20px;
-    margin-right: 10px;
+    flex-shrink: 0; /* Impede que o ícone encolha */
 }
 
+/* Campo de busca - Centro */
 header input[type="text"] {
+    /* Chave para centralização: margens automáticas laterais */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Dimensionamento do input */
+    max-width: 450px; /* Largura máxima para o input */
+    width: 100%; /* Ocupa o espaço disponível até o max-width, centralizado pelas margens */
+    min-width: 100px; /* Largura mínima para evitar que desapareça */
 
-    margin-left: 45em;
-    margin-right: 40em;
-    flex: 1;
-    padding: 6px 10px;
+    /* Estilos de aparência */
+    padding: 6px 12px;
     border-radius: 50px;
-    min-width: 100px;
-    max-width: 500px;
     border: 2px solid var(--cor-3);
     background-color: transparent;
     color: var(--cor-2);
-
+    font-family: "Inter", sans-serif; 
+    font-size: 14px;
 }
 
+header input[type="text"]::placeholder {
+    color: var(--cor-2);
+    opacity: 0.7;
+}
+
+/* Botão "+ Criar MatchUp" - Direita */
 header button:first-of-type {
-
+    /* margin-left: auto; /* REMOVIDO - o input agora se centraliza */
     color: var(--cor-2);
-    padding: 10px;
+    padding: 8px 15px;
     border: 2px solid var(--cor-3);
     background-color: transparent;
+    white-space: nowrap; 
+    font-size: 18px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+header button:first-of-type:hover {
+    background-color: var(--cor-1);
+    color: var(--cor-back-1);
 }
 
-/* 
-header button:nth-of-type(2),
-header button:nth-of-type(3),
-header button:nth-of-type(4) {
-    margin-left: 10px;
-    color: var(--cor-2);
-    padding: 10px;
 
-} */
+/* Ícones de sino e usuário - Direita */
+header .fa-bell,
+header .fa-user { 
+    color: var(--cor-2);
+    font-size: 25px;
+    flex-shrink: 0; /* Impede que os ícones encolham */
+}
 
 nav {
     padding-bottom: 20px;
-    padding-top: 80px;
+    padding-top: 80px; 
     display: flex;
     justify-content: center;
     gap: 20px;
     align-items: center;
     background-color: var(--cor-back-1);
     flex-wrap: wrap;
-    
+}
+
+button{
+    cursor: pointer;
 }
 .btnNav{
     transition: 0.5s
@@ -92,83 +110,153 @@ nav {
 nav button{
     background-color: transparent;
     color: var(--cor-2);
+    font-size: 20px; 
+    position: relative; 
+    border: none; 
+    border-radius: 0; 
+    padding: 5px 0; 
 }
 
 nav button:hover{
     color: gray;
-
 }
 
 nav button::after{
-
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px; 
     left: 0;
-    width: 100%;
-    height: 4px; 
+    width: 0%; 
+    height: 2px; 
     background-color: var(--cor-2);
-    border-radius: 2px;
-
+    transition: width 0.3s ease-in-out; 
+}
+nav button:hover::after,
+nav button.ativo::after { 
+    width: 100%;
 }
 
-button{
-    
+button{ 
     background-color: var(--cor-1);
     border: none;
     border-radius: 30px;
-    font-size: 20px;
-    
+    font-size: 20px; 
 }
-nav button{
-    position: relative;
 
-}
 
 .btnCard{
-    padding: 10px;
-    transition: 0.5s;
+    padding: 10px 20px; 
+    transition: 0.3s; 
     margin-bottom: 10px;
+    color: var(--cor-2); 
+    background-color: var(--cor-1); 
+    font-family: "Bebas Neue", sans-serif; 
+    font-size: 18px; 
+    border-radius: 20px; 
 }
 .btnCard:hover{
-    background-color: var(--cor-2);
-    transition: 0.5s
+    background-color: var(--cor-2); 
+    color: var(--cor-1); 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .Top, .bottom{
-    padding: 50px;
-    gap: 50px;
+    padding: 50px 20px; 
+    gap: 30px; 
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
     justify-content: center;
+    flex-wrap: wrap; 
 }
 
 .c1t, .c2t, .c3t, .c1b, .c2b, .c3b{
-
     text-align: center;
     border-radius: 28px;
     background-color: var(--cor-2);
-    width: 350px;
-    
+    width: 320px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex; 
+    flex-direction: column; 
 }
+
+.c1t .txtC1t, .c2t .txtC1t, .c3t .txtC1t, .c1b .txtC1t, .c2b .txtC1t, .c3b .txtC1t {
+    padding: 15px;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
 
 .c1t p, .c2t p, .c3t p, .c1b p, .c2b p, .c3b p{
     font-family: "Montserrat", sans-serif;
     margin-top: 10px;
-    margin-bottom: 25px;
-
+    margin-bottom: 20px; 
+    color: var(--cor-back-1); 
+    font-size: 15px; 
+    line-height: 1.6;
 }
 
 .c1t h2, .c2t h2, .c3t h2, .c1b h2, .c2b h2, .c3b h2{
-
     font-family: "Bebas Neue", sans-serif;
-
+    color: var(--cor-1); 
+    font-size: 28px; 
 }
 img{
-    width: 350px;
-    border-top-left-radius: 28px ;
-    border-top-right-radius: 28px ;
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-top-left-radius: 28px ; 
+    border-top-right-radius: 28px ; 
+    display: block; 
 }
-.c1t button, .c2t button, .c3t button, .c1b button, .c2b button, .c3b button{
-    color: var(--cor-2);
+
+/* Media Queries para Responsividade do Header */
+@media (max-width: 768px) {
+    header {
+        padding: 0 10px; 
+        gap: 8px; 
+    }
+
+    header input[type="text"] {
+        max-width: 300px; 
+        min-width: 80px;
+        font-size: 13px;
+    }
+
+    header button:first-of-type {
+        padding: 7px 10px;
+        font-size: 16px; 
+    }
+    
+    header .fa-bars,
+    header .fa-bell,
+    header .fa-user {
+        font-size: 22px; 
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        gap: 5px; /* Reduz o gap para economizar espaço */
+    }
+    header input[type="text"] {
+        max-width: 100px; /* Input bem menor em telas muito pequenas */
+        min-width: 60px;
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    header button:first-of-type {
+        font-size: 12px; 
+        padding: 6px 8px;
+    }
+
+    header .fa-bars,
+    header .fa-bell,
+    header .fa-user {
+        font-size: 20px; 
+    }
 }
