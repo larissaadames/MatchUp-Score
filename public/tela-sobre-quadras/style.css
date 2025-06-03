@@ -1,0 +1,788 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    
+*{
+
+    font-family: "Bebas Neue", sans-serif;
+
+}
+
+body{
+
+    background-color: #242322;
+    margin: 0;
+        
+}
+
+main {
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 250px;
+
+}
+
+section{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 5em;
+
+}
+
+/* -------------------------------- Design navbar --------------------------------*/
+
+nav{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #242322;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+                
+}
+
+.pesquisa-links-centro-nav{
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.sanduiche-nav, .perfil-nav, .pesquisa-links-centro-nav{
+
+    display: block;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+
+}
+
+.sanduiche-nav{
+
+    order: 1;
+    flex: 1 1 100px;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.sanduiche-nav i{
+
+    padding-left: 30px;
+    min-width: 60px;
+    font-size: 50px;
+
+}
+
+.pesquisa-links-centro-nav {
+
+    order: 2;
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.pesquisar-nav{
+
+    position: relative;
+    margin: 20px;
+
+}
+
+.pesquisar-nav input{
+
+    background-color: transparent;
+    border-radius: 28px;
+    border: 3px solid #363432;
+    width: 26vw;
+    height: 35px;
+    padding-left: 1.5em;
+    font-size: 14px;
+    color: white;
+    max-width: 33,33%;
+
+}
+
+.pesquisar-nav input:focus{
+
+    outline: none;
+    transition: 0.5s;
+    box-shadow: 0 0 3px 2px #34675C;
+
+}
+
+.pesquisar-nav button{
+
+    position: absolute;
+    padding-top: 12px;
+    padding-bottom: 4px;
+    padding-left: 50px;
+    top: 50%;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    right: 1px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    background-color: #363432;
+    transition: 0.5s;
+
+}
+
+.pesquisar-nav button i{
+
+    margin-bottom: 0.5em;
+    margin-left: -3em;
+
+}
+
+.links-centro-nav{
+
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    font-size: 24px;
+    list-style: none;
+
+}
+    
+.links-centro-nav li a{
+
+     position: relative;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+
+}
+
+.links-centro-nav li a:hover{
+
+    transition: 0.5s;
+    color: #34675C;
+
+}
+
+.links-centro-nav li a::after{
+
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; 
+    background-color: #ffffff;
+    border-radius: 2px;
+
+}
+
+.perfil-nav {
+
+    order: 3;
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin-right: 30px;
+
+}
+
+.perfil-nav i{
+
+    font-size: 30px;
+
+}
+
+.usuario-perfil-foto{
+
+    background-color: #14140F;
+    border-radius: 50%;
+    padding: 20px 25px;
+    color: #363432;
+    cursor: pointer;
+
+}
+
+.perfil-nav button{
+
+    display: flex;
+    font-family: "Inter", sans-serif;
+    background-color: #363432;
+    color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 10px;
+    transition: 0.5s;
+
+}
+
+.perfil-nav button i{
+
+    font-size: 20px;
+
+}
+
+.perfil-nav button:hover{
+
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #34675C;
+
+}
+
+/* -------------------------------- Design parte preta: informações quadra --------------------------------*/
+
+.lado-direito, .lado-esquerdo{
+
+    flex: 1 1 500px;
+    max-width: 600px;
+    width: 100%;
+
+}
+
+.sobre-quadras{
+
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: auto 0;
+
+}
+
+.botao-reservar-div button{
+
+    background-color: #34675C;
+    height: 59px;
+    width: 40vw;
+    max-width: 287.54px;
+    font-size: 24px;
+    color: white;
+    border-style: none;
+    border-radius: 30px;
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+
+.botao-reservar-div button:hover{
+
+    transition: 0.5s;
+    background-color: #053D38;
+
+}
+
+.imagens-display {
+
+    position: relative;
+    max-width: 725px; 
+    height: auto;
+
+}
+
+.slides-quadras {
+        
+    display: none;
+    position: relative;
+    width: 100%;
+
+}
+
+.slides-quadras img {
+
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    max-height: 700px;
+    object-fit: cover;
+    border-radius: 20px;
+        
+}
+
+.imagens-display .prev, .imagens-display .next {
+
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    transition: 0.5s;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    z-index: 10;
+
+}
+
+.imagens-display .prev {
+
+    left: 0;
+
+}
+
+.imagens-display .next {
+
+    right: 0;
+
+}
+
+.imagens-display .prev:hover, .imagens-display .next:hover {
+
+    background-color: rgba(0,0,0,0.8);
+
+}
+
+.usuario-avaliacao-foto{
+
+    border-radius: 50%;
+    border: 2px solid black;
+    padding: 20px 25px;
+    font-size: 25px;
+
+}
+
+.mapa-quadra{
+
+    background-color: #34675C;
+    width: 100%;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    text-align: center;
+
+}
+
+.mapa-quadra iframe{
+
+    width: 100%;
+    height: 400px;
+
+}
+
+.mapa-quadra p{
+
+    text-align: center;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.texto-descricao-quadra p{
+
+    text-align: center;
+    font-size: 24px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+
+}
+
+.descricao-detalhada li{
+
+    font-family: "Montserrat", sans-serif;
+    color: white;
+
+}
+
+/* -------------------------------- Design parte branca: avaliação quadras --------------------------------*/
+
+.avaliacoes{
+
+    background-color: #D9D9D9;
+    height: auto;
+    width: 100%;
+    flex-grow: 1;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+.nome-quadra-avaliacao-botao-div{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nome-quadra-avaliacao-div h2{
+
+    font-size: 40px;
+    color: white;
+    margin-bottom: 15px;
+
+}
+
+.nome-quadra-avaliacao-div i{
+
+    font-size: 25px;
+
+}
+
+.avaliacoes{
+
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.avaliacao-total{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -8em;
+
+}
+
+.avaliacoes h1{
+    
+    margin:40px;
+    font-size: 35px;
+
+}
+
+.avaliacao-total h2{
+
+    font-size: 80px;
+
+}
+
+.avaliacao-total span{
+
+    font-size: 60px;
+
+}
+
+.avaliacao-total p{
+
+    font-family: "Montserrat", sans-serif;
+    margin-top: -5em;
+
+}
+
+.porcentagem-avaliacao{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+
+}
+
+.porcentagem-avaliacao span{
+
+    font-size: 40px;
+    padding: 20px;
+    border: 8px solid #34675C;
+    border-radius: 50%;
+
+}
+
+.porcentagem-avaliacao p{
+
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.avaliar-quadra-div{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+.avaliar-quadra-div input{
+
+    width: 100%;
+    max-width: 100%;
+
+}
+
+.avaliar-quadra-div i{
+
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    background-color: #34675C;
+    border-radius: 50%;
+    padding: 4px;
+
+}
+
+.input-avaliar-quadra{
+
+    border-radius: 20px;
+    border-style: none;
+    padding: 10px;
+    width: 40vw;
+    max-width: 600px;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.avaliacao-usuario{
+
+    background-color: white;
+    margin-bottom: 4em;
+    border-radius: 40px;
+    padding: 20px;
+    width: 40vm;
+    max-width: 600px;
+
+}
+
+.usuario-nome-foto{
+
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1em;
+    
+}
+
+/* 300% */
+
+@media (min-width: 600px) and (max-width: 680px) {
+
+    main{
+
+        padding-top: 100px;
+
+    }
+
+    .perfil-nav i, .perfil-nav button{
+
+        display: none;
+
+    }
+
+    .perfil-nav .usuario-perfil-foto{
+
+        display: block !important;
+
+    }
+
+    .perfil-nav{
+
+        margin-left: -13em;
+
+    }
+
+    .sanduiche-nav{
+
+        margin-right: -6em;
+
+    }
+
+    .links-centro-nav{
+
+        display: none;
+
+    }
+
+    .pesquisa-links-centro-nav input{
+
+        width: 45vw;
+
+    }
+
+}
+
+/* 400% */
+
+@media (min-width: 450px) and (max-width: 500px) {
+
+    main{
+
+        padding-top: 80px;
+
+    }
+
+     .perfil-nav i, .perfil-nav button{
+
+        display: none;
+
+    }
+
+    .perfil-nav .usuario-perfil-foto{
+
+        display: block !important;
+        padding: 10px 12px;
+        font-size: 14px;
+
+    }
+
+    .perfil-nav{
+
+        margin-left: -13em;
+
+    }
+
+    .sanduiche-nav{
+
+        margin-right: -6em;
+
+    }
+
+    .sanduiche-nav i {
+
+        font-size: 30px;
+
+    }
+
+    .links-centro-nav{
+
+        display: none;
+
+    }
+
+    .pesquisa-links-centro-nav input{
+
+        width: 45vw;
+        font-size: 10px;
+        height: 20px;
+
+    }
+
+    .pesquisar-nav button{
+
+        margin-top: 5px;
+        width: 1em;
+        padding-top: 21px;
+        padding-bottom: 4px;
+        padding-left: 30px;
+
+    }
+
+    .pesquisar-nav button i{
+
+        position: absolute;
+        font-size: 13px;
+        margin-top: -12px;
+        margin-left: -1.5em;
+
+    }
+
+    .pesquisar-nav{
+
+        height: 15px;
+        margin-top: 10px;
+
+    }
+
+}
+/* 500% */
+
+@media (min-width: 375px) and (max-width: 395px) {
+
+    main{
+
+        padding-top: 80px;
+
+    }
+
+     .perfil-nav i, .perfil-nav button{
+
+        display: none;
+
+    }
+
+    .perfil-nav .usuario-perfil-foto{
+
+        display: block !important;
+        padding: 10px 12px;
+        font-size: 14px;
+
+    }
+
+    .perfil-nav{
+
+        margin-left: -13em;
+
+    }
+
+    .sanduiche-nav{
+
+        margin-right: -6em;
+
+    }
+
+    .sanduiche-nav i {
+
+        font-size: 30px;
+
+    }
+
+    .links-centro-nav{
+
+        display: none;
+
+    }
+
+    .pesquisa-links-centro-nav input{
+
+        width: 45vw;
+        font-size: 10px;
+        height: 20px;
+        margin-top: 5px;
+
+    }
+
+    .pesquisar-nav button{
+
+        width: 1em;
+        margin-top: 5px;
+        padding-top: 21px;
+        padding-bottom: 4px;
+        padding-left: 30px;
+
+    }
+
+    .pesquisar-nav button i{
+
+        position: absolute;
+        font-size: 13px;
+        margin-top: -12px;
+        margin-left: -1.5em;
+
+    }
+
+    .pesquisar-nav{
+
+        height: 25px;
+        margin-top: 10px;
+
+    }
+
+}
