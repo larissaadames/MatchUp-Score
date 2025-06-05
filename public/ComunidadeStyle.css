@@ -9,10 +9,10 @@
 
 body{
     background-color: var(--cor-back-1);
-    --cor-back-1:#242322;
+    --cor-back-1:#363432;
     --cor-1:#34675C;
     --cor-2:#D9D9D9;
-    --cor-3:#363432;
+    --cor-3:#242322;
 }
 
 header{
@@ -30,12 +30,11 @@ header{
 }
 
 /* Ícone de menu (sanduíche) - Esquerda */
-header .fa-bars{
+/* header .fa-bars{
     color: var(--cor-2);
     font-size: 25px;
     flex-shrink: 0; /* Impede que o ícone encolha */
-}
-
+/* }  */
 /* Campo de busca - Centro */
 header input[type="text"] {
     /* Chave para centralização: margens automáticas laterais */
@@ -56,16 +55,16 @@ header input[type="text"] {
     font-family: "Inter", sans-serif; 
     font-size: 14px;
 }
-
+/* 
 header input[type="text"]::placeholder {
     color: var(--cor-2);
     opacity: 0.7;
-}
+} */
 
 /* Botão "+ Criar MatchUp" - Direita */
-header button:first-of-type {
+/* header button:first-of-type { */
     /* margin-left: auto; /* REMOVIDO - o input agora se centraliza */
-    color: var(--cor-2);
+    /* color: var(--cor-2);
     padding: 8px 15px;
     border: 2px solid var(--cor-3);
     background-color: transparent;
@@ -73,12 +72,12 @@ header button:first-of-type {
     font-size: 18px;
     border-radius: 20px;
     transition: background-color 0.3s, color 0.3s;
-    flex-shrink: 0; /* Impede que o botão encolha */
-}
-header button:first-of-type:hover {
+    flex-shrink: 0; Impede que o botão encolha */
+/* } */
+/* header button:first-of-type:hover {
     background-color: var(--cor-1);
     color: var(--cor-back-1);
-}
+} */
 
 
 /* Ícones de sino e usuário - Direita */
@@ -100,9 +99,6 @@ nav {
     flex-wrap: wrap;
 }
 
-button{
-    cursor: pointer;
-}
 .btnNav{
     transition: 0.5s
 }
@@ -128,7 +124,7 @@ nav button::after{
     left: 0;
     width: 0%; 
     height: 2px; 
-    background-color: var(--cor-2);
+    background-color: var(--cor-1);
     transition: width 0.3s ease-in-out; 
 }
 nav button:hover::after,
@@ -137,6 +133,7 @@ nav button.ativo::after {
 }
 
 button{ 
+    cursor:pointer;
     background-color: var(--cor-1);
     border: none;
     border-radius: 30px;
