@@ -1,103 +1,316 @@
-/* styleEntrar.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-  }
-  
-  .navbar {
-    background-color: #1f2937;
+}
+
+html {
+    font-size: clamp(14px, 1vw + 0.5rem, 18px);
+}
+
+body {
+    background-color: #242322;
     color: white;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  main {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  h2 {
-    text-align: center;
+    line-height: 1.4;
+}
+
+header.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #242322;
+    color: white;
+    padding: 0 1rem;
+}
+
+.logo img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.search-area {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 1rem;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    background-color: #363432;
+}
+
+.search input {
+    color: white;
+    border: 3px solid #363432;
+    background-color: #242322;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    flex: 1;
+    padding: 0.5rem 1rem;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    min-width: 0;
+    transition: 0.5s;
+}
+
+.search input:hover {
+    background-color: #4a4947; 
+    border-radius: 20px;
+    transition:  0.5s;
+    outline: none;
+}
+
+.search button {
+    border: none;
+    background-color: #363432;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.deco-lado-direito {
+    flex-shrink: 0;
+    max-width: 100px; 
+    overflow: hidden;
+}
+
+.deco-lado-direito ul {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin-right: 1.5rem;
+    list-style: none;
+}
+
+.deco-lado-direito ul li {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu {
+    background-color: #242322;
+    margin-top: 2rem;
     margin-bottom: 2rem;
-  }
-  
-  .quadras {
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    font-family: 'Bebas Neue', 'sans-serif';
+    transition: color 0.3s;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu ul li a:hover {
+    color: #ddd;
+}
+
+.menu ul li a.link-ativo {
+    color: #aaa;
+    position: relative;
+}
+
+.menu ul li a.link-ativo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: none;
+}
+
+.navbar, .menu ul li a, .search input, .search button {
+    transition: all 0.3s ease;
+}   
+
+main {
+    padding: 2rem;
+}
+
+main h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    color: white;
+}
+
+.quadras {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
-  }
-  
-  .quadra-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 220px;
+}
+
+.quadra-card {
+    background-color: #2e2c2a;
+    border-radius: 12px;
     padding: 1rem;
-    text-align: center;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .quadra-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .quadra-card img {
+    transition: transform 0.2s ease;
+}
+
+.quadra-card:hover {
+    transform: scale(1.05);
+}
+
+.quadra-card h3 {
+    font-size: 1.1rem;
+    color: #81b29a;
+    margin-bottom: 0.5rem;
+}
+
+.quadra-card img {
     width: 100%;
     height: 130px;
+    border-radius: 10px;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-  }
-  
-  .quadra-card h3 {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .quadra-card p {
-    margin: 0.25rem 0;
+    margin-bottom: 0.75rem;
+}
+
+.quadra-card p {
     font-size: 0.9rem;
-  }
-  
-  .overlay {
+    color: #ccc;
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     background-color: rgba(0,0,0,0.6);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 10;
-  }
-  
-  .overlay.active {
+    z-index: 1000;
+}
+
+.overlay.active {
     display: flex;
-  }
-  
-  .popup {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 300px;
+}
+
+.popup {
+    background-color: #D9D9D9;
+    color: #222;
+    padding: 1.5rem;
+    border-radius: 20px;
+    width: 320px;
     max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
     position: relative;
-  }
-  
-  .close-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.close-btn {
     position: absolute;
     top: 10px;
-    right: 20px;
-    font-size: 1.5rem;
+    right: 15px;
+    font-size: 2rem;
     cursor: pointer;
-    color: #333;
-  }
-  
+    color: #555;
+    user-select: none;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #000000;
+}
+
+.popup div{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.entrar{
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    background-color: #34675C;
+    transition: 0.5s;
+}
+
+.cancel{
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    background-color: #A73434;
+    transition: 0.5s;
+}
+
+.entrar:hover{
+    transition: 0.5s;
+    background-color: #053D38;
+    cursor: pointer;
+}
+
+.cancel:hover{
+    transition: 0.5s;
+    background-color: #F06060;
+    cursor: pointer;
+}

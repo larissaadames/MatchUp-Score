@@ -128,17 +128,28 @@ function exibirMatchups() {
     card.classList.add("quadra-card");
 
     card.innerHTML = `
-      <img src="${m.imagem}" alt="Imagem ${m.esporte}" />
-      <h3>${m.nome}</h3>
-      <p>Quadra: ${m.quadra}</p>
-      <p>Data: ${m.data} - Hora: ${m.hora}</p>
-      <p>Capacidade: ${m.capacidade} / ${m.capacidadeMaxima}</p>
-      <div class="rating">★★★★★</div>
+        <img src="${m.imagem}" alt="Imagem ${m.esporte}" />
+        <h3>${m.nome}</h3>
+        <p>Quadra: ${m.quadra}</p>
+        <p>Data: ${m.data} - Hora: ${m.hora}</p>
+        <p>Capacidade: ${m.capacidade} / ${m.capacidadeMaxima}</p>
+        <div class="rating">★★★★★</div>
+
     `;
 
     container.appendChild(card);
   });
 }
+
+// function excluirMatchup(idReserva) {
+//   let matchups = JSON.parse(localStorage.getItem("matchups")) || [];
+//   matchups = matchups.filter(m => m.idReserva !== idReserva || m.userId !== usuarioAtualId);
+//   localStorage.setItem("matchups", JSON.stringify(matchups));
+//   exibirMatchups(); 
+// }
+
+//      <button class="btn-excluir" onclick="excluirMatchup(${m.idReserva})">Excluir</button>
+
 
 function obterCapacidadeMaxima(esporte) {
   const capacidades = {

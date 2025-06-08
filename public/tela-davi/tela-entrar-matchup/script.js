@@ -14,7 +14,7 @@ const matchupsDisponiveis = [
     hora: "19:30",
     capacidade: 10,
     capacidadeMaxima: 12,
-    imagem: "imagens/sintetico.jpg",
+    imagem: "../imagens/sintetico.jpg",
     participantes: []
   },
   {
@@ -27,7 +27,7 @@ const matchupsDisponiveis = [
     hora: "20:00",
     capacidade: 11,
     capacidadeMaxima: 12,
-    imagem: "imagens/futebol.jpg",
+    imagem: "../imagens/futebol.jpg",
     participantes: []
   }
 ];

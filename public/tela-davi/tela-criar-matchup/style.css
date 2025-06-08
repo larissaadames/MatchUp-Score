@@ -2,21 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-
-*{
-
+* {
     font-family: "Bebas Neue", sans-serif;
-
+    box-sizing: border-box;
 }
 
 html {
     font-size: clamp(14px, 1vw + 0.5rem, 18px);
-}
-
-header{
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
-
 }
 
 body {
@@ -25,16 +17,15 @@ body {
     margin: 0;
     padding: 0;
 }
-  
-.navbar {
-    position: relative;
+
+header.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #242322;
     color: white;
-    flex-wrap: nowrap;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+    padding: 0 1rem;
 }
 
 .logo img {
@@ -44,7 +35,7 @@ body {
 
 .search-area {
     flex-grow: 1;
-    min-width: 0; 
+    min-width: 0;
     display: flex;
     justify-content: center;
     margin: 0 1rem;
@@ -73,7 +64,6 @@ body {
     font-size: 1rem;
     min-width: 0;
     transition: 0.5s;
-
 }
 
 .search input:hover {
@@ -164,57 +154,56 @@ body {
 }
 
 .menu ul li a.link-ativo {
-  color: #aaa; /* cinza clarinho */
-  position: relative;
+    color: #aaa;
+    position: relative;
 }
 
 .menu ul li a.link-ativo::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  border-radius: 2px;
-  transform: scaleX(1);
-  transform-origin: left;
-  transition: none;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: none;
 }
 
 .navbar, .menu ul li a, .search input, .search button {
     transition: all 0.3s ease;
 }
-  
+
 main {
     padding: 2rem;
 }
 
-main h2{
-
+main h2 {
     margin-bottom: 2em;
     color: white;
-
 }
-  
+
 .quadras {
     display: flex;
     gap: 5rem;
     flex-wrap: wrap;
 }
-  
+
 .quadra-card {
     background-color: #D9D9D9;
     border-radius: 15px;
     padding: 1rem;
     width: 280px;
+    transition: transform 0.2s ease;
 }
 
-.quadra-card h3{
+.quadra-card h3 {
     color: #34675C;
     font-size: 25px;
 }
-  
+
 .quadra-card img {
     width: 100%;
     height: 170px;
@@ -222,18 +211,22 @@ main h2{
     object-fit: cover;
 }
 
-.quadra-card p{
+.quadra-card p {
     font-size: 15px;
-    font-family: 'Montserrat', 'sans-serif';
+    font-family: 'Montserrat', sans-serif;
 }
-  
-.popup {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    width: 300px;
+
+.quadra-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
-  
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .overlay {
     display: none;
     position: fixed;
@@ -242,55 +235,86 @@ main h2{
     justify-content: center;
     align-items: center;
     z-index: 10;
+    
 }
-  
+
 .overlay.active {
     display: flex;
 }
-  
+
+.popup {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh; 
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+}
+
 form input,
 form select {
-
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 100%;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
     padding: 0.5rem;
-
+    background-color: #ffffff;
 }
-  
-form div{
 
+form div {
     display: flex;
     gap: 10px;
     justify-content: center;
-
 }
 
-form span{
-
+form span {
     font-size: 30px;
-
 }
 
 form button {
-    
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 0.5rem;
-
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    color: white;
 }
 
-footer{
+.form-colunas {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start; 
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
 
+.coluna-esquerda,
+.coluna-direita {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+footer {
     display: flex;
     margin-bottom: 3em;
     justify-content: center;
-
 }
 
-.btn-criar{
-
+.btn-criar {
     align-self: center;
     font-size: 19px;
     padding: 10px;
@@ -299,18 +323,60 @@ footer{
     color: white;
     border: none;
     transition: 0.5s;
-
 }
 
-.btn-criar:hover{
+.salvar{
+    background-color: #34675C;
+    transition: 0.5s;
+}
 
+.cancel{
+
+    background-color: #A73434;
+    transition: 0.5s;
+}
+
+.salvar:hover{
+    transition: 0.5s;
+    background-color: #053D38;
+    cursor: pointer;
+}
+
+.cancel:hover{
+    transition: 0.5s;
+    background-color: #F06060;
+    cursor: pointer;
+}
+
+.btn-criar:hover {
     background-color: white;
     color: #34675C;
-    transition: 0.5s;
     cursor: pointer;
+}
+
+.select-customizacao {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+}
+
+.select-customizacao select{
+ 
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
 
 }
-  
+
+.select-customizacao i.fa-chevron-down {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; 
+    color: #346757;
+    font-size: 1rem;
+}
 
 .rating{
 
@@ -318,3 +384,19 @@ footer{
 
 }
 
+@media (max-width: 600px) {
+
+  .popup {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .form-colunas {
+    flex-direction: column;
+  }
+
+  .coluna-esquerda,
+  .coluna-direita {
+    width: 100%;
+  }
+}

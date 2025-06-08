@@ -2,34 +2,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrar em Matchups</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar em Matchups</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">MatchupScore!</div>
-  </header>
+    <header class="navbar">
+        <div class="logo">
+            <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+        </div>
 
-  <main>
-    <h2>Matchups Disponíveis</h2>
-    <div class="quadras" id="matchup-disponiveis"></div>
-  </main>
+        <div class="search-area">
+            <div class="search">
+                <input type="text" placeholder="Pesquisar Quadra" />
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
 
-  <!-- Pop-up de detalhes da matchup -->
-  <div id="popup-matchup" class="overlay">
-    <div class="popup">
-      <span class="close-btn" onclick="fecharPopupDetalhes()">&times;</span>
-      <h2 id="popup-nome"></h2>
-      <p><strong>Quadra:</strong> <span id="popup-quadra"></span></p>
-      <p><strong>Data:</strong> <span id="popup-data"></span></p>
-      <p><strong>Hora:</strong> <span id="popup-hora"></span></p>
-      <p><strong>Capacidade:</strong> <span id="popup-capacidade"></span></p>
-      <button onclick="confirmarEntrada()">Entrar na Partida</button>
+        <div class="deco-lado-direito">
+            <ul>
+                <li><i class="fa-solid fa-bell"></i></li>
+                <li><i class="fa-solid fa-user"></i></li>
+            </ul>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicial</a></li>
+            <li><a href="entrar-matchup.html" class="link-ativo">Entrar MatchUp</a></li>
+            <li><a href="../tela-criar-matchup/criar-matchup.html">Criar MatchUp</a></li>
+            <li><a href="#">Comunidade</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Matchups Disponíveis</h2>
+        <div class="quadras" id="matchup-disponiveis"></div>
+    </main>
+
+    <div id="popup-matchup" class="overlay">
+        <div class="popup">
+            <span class="close-btn" onclick="fecharPopupDetalhes()">&times;</span>
+            <h2 id="popup-nome"></h2>
+            <p><strong>Quadra:</strong> <span id="popup-quadra"></span></p>
+            <p><strong>Data:</strong> <span id="popup-data"></span></p>
+            <p><strong>Hora:</strong> <span id="popup-hora"></span></p>
+            <p><strong>Capacidade:</strong> <span id="popup-capacidade"></span></p>
+            <div>
+                <button onclick="confirmarEntrada()" class="entrar">Entrar na Partida</button>
+                <button type="button" class="cancel" onclick="fecharPopupDetalhes()">Cancelar</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="scriptEntrar.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
