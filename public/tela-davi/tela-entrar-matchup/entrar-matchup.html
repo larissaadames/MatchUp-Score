@@ -1,0 +1,35 @@
+<!-- entrar.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar em Matchups</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">MatchupScore!</div>
+  </header>
+
+  <main>
+    <h2>Matchups Disponíveis</h2>
+    <div class="quadras" id="matchup-disponiveis"></div>
+  </main>
+
+  <!-- Pop-up de detalhes da matchup -->
+  <div id="popup-matchup" class="overlay">
+    <div class="popup">
+      <span class="close-btn" onclick="fecharPopupDetalhes()">&times;</span>
+      <h2 id="popup-nome"></h2>
+      <p><strong>Quadra:</strong> <span id="popup-quadra"></span></p>
+      <p><strong>Data:</strong> <span id="popup-data"></span></p>
+      <p><strong>Hora:</strong> <span id="popup-hora"></span></p>
+      <p><strong>Capacidade:</strong> <span id="popup-capacidade"></span></p>
+      <button onclick="confirmarEntrada()">Entrar na Partida</button>
+    </div>
+  </div>
+
+  <script src="scriptEntrar.js"></script>
+</body>
+</html>

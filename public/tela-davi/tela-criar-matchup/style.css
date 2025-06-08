@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+*{
+
+    font-family: "Bebas Neue", sans-serif;
+
+}
+
+html {
+    font-size: clamp(14px, 1vw + 0.5rem, 18px);
+}
+
+header{
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+
+}
+
+body {
+    background-color: #242322;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+  
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #242322;
+    color: white;
+    flex-wrap: nowrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
+}
+
+.logo img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.search-area {
+    flex-grow: 1;
+    min-width: 0; 
+    display: flex;
+    justify-content: center;
+    margin: 0 1rem;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    background-color: #363432;
+}
+
+.search input {
+    color: white;
+    border: 3px solid #363432;
+    background-color: #242322;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    flex: 1;
+    padding: 0.5rem 1rem;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    min-width: 0;
+    transition: 0.5s;
+
+}
+
+.search input:hover {
+    background-color: #4a4947; 
+    border-radius: 20px;
+    transition:  0.5s;
+    outline: none;
+}
+
+.search button {
+    border: none;
+    background-color: #363432;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.deco-lado-direito {
+    flex-shrink: 0;
+    max-width: 100px; 
+    overflow: hidden;
+}
+
+.deco-lado-direito ul {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin-right: 1.5rem;
+    list-style: none;
+}
+
+.deco-lado-direito ul li {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu {
+    background-color: #242322;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    font-family: 'Bebas Neue', 'sans-serif';
+    transition: color 0.3s;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu ul li a:hover {
+    color: #ddd;
+}
+
+.menu ul li a.link-ativo {
+  color: #aaa; /* cinza clarinho */
+  position: relative;
+}
+
+.menu ul li a.link-ativo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: none;
+}
+
+.navbar, .menu ul li a, .search input, .search button {
+    transition: all 0.3s ease;
+}
+  
+main {
+    padding: 2rem;
+}
+
+main h2{
+
+    margin-bottom: 2em;
+    color: white;
+
+}
+  
+.quadras {
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+  
+.quadra-card {
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    padding: 1rem;
+    width: 280px;
+}
+
+.quadra-card h3{
+    color: #34675C;
+    font-size: 25px;
+}
+  
+.quadra-card img {
+    width: 100%;
+    height: 170px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.quadra-card p{
+    font-size: 15px;
+    font-family: 'Montserrat', 'sans-serif';
+}
+  
+.popup {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 300px;
+}
+  
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+  
+.overlay.active {
+    display: flex;
+}
+  
+form input,
+form select {
+
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+
+}
+  
+form div{
+
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+form span{
+
+    font-size: 30px;
+
+}
+
+form button {
+    
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.5rem;
+
+}
+
+footer{
+
+    display: flex;
+    margin-bottom: 3em;
+    justify-content: center;
+
+}
+
+.btn-criar{
+
+    align-self: center;
+    font-size: 19px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #34675C;
+    color: white;
+    border: none;
+    transition: 0.5s;
+
+}
+
+.btn-criar:hover{
+
+    background-color: white;
+    color: #34675C;
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+  
+
+.rating{
+
+    color: #053D38;
+
+}
+
