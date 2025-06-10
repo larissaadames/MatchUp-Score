@@ -9,47 +9,33 @@
     <script src="script.js" defer></script>
     <title>Sobre</title>
 </head>
-<body>
+<header class="navbar">
+    <div class="logo">
+        <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+    </div>
 
-    <header>
-
+    <div class="header-center">
+        <div class="search-area">
+            <div class="search">
+                <input type="text" placeholder="Pesquisar Quadra" />
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
         <nav>
-
-            <div class="sanduiche-nav">
-
-                <i class="fa-solid fa-bars"></i>
-
-            </div>
-
-            <div class="pesquisa-links-centro-nav">
-
-                <div class="pesquisar-nav">
-
-                    <input type="text" placeholder="Pesquisar quadra ou região">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-
-                </div>
-
-                <ul class="links-centro-nav">
-
-                    <li><a href="#">Comunidade</a></li>
-                    <li><a href="#">Entrar MatchUp</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="perfil-nav">
-
-                <button type="button" onclick="window.location.href = '#' " class="criar-matchup"><i class="fa-solid fa-plus"></i> Criar MatchUp</button>
-                <i class="fa-regular fa-bell"></i>
-                <i class="fa-solid fa-user usuario-perfil-foto"></i>
-                
-            </div>
-
+            <button class="btnNav ativo" onclick="window.location.href = 'index.html'"><span>Inicial</span></button>
+            <button class="btnNav" onclick="window.location.href = 'entrarMatchUp.html'"><span>Entrar MatchUp</span></button>
+            <button class="btnNav" onclick="window.location.href =  'criarMatchUp.html'"><span>+Criar Matchup</span></button>
+            <button class="btnNav" onclick="window.location.href = 'comunidade.html'"><span>Comunidade</span></button>
         </nav>
-
-    </header>
+    </div>
+    <div class="deco-lado-direito">
+        <ul>
+            <li><i class="fa-solid fa-bell"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
+        </ul>
+    </div>
+</header>
+<body>
 
     <main>
 

@@ -3,30 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="inicialStyle.css">
+
+
+    <title>Página Inicial</title>
+
 </head>
-<header>
-    <input class="barraPesquisa" type="text" name="pesquisa" placeholder="Pesquise">
-<!--    <i class="fa-regular fa-bell"></i>
-    <i class="fa-solid fa-user usuario-perfil-foto"></i>-->
-</header>
-<nav>
-    <button class="btnNav ativo"><span>Inicial</span></button>
-    <button class="btnNav"><span>Entrar MatchUp</span></button>
-    <button class="btnNav"><span>+Criar Matchup</span></button>
-    <button class="btnNav"><span>Comunidade</span></button>
-</nav>
-<body>
-    <main>
-        <div class="Top">
-            <div class="ct">
-                <div class="imgC">
-                    <h2>Quadra do ney</h2>
-                </div>
+<header class="navbar">
+    <div class="logo">
+        <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+    </div>
+
+    <div class="header-center">
+        <div class="search-area">
+            <div class="search">
+                <input type="text" placeholder="Pesquisar Quadra" />
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
-    </main>
+        <nav>
+            <button class="btnNav ativo" onclick="window.location.href = 'index.html'"><span>Inicial</span></button>
+            <button class="btnNav" onclick="window.location.href = 'entrarMatchUp.html'"><span>Entrar MatchUp</span></button>
+            <button class="btnNav" onclick="window.location.href =  'criarMatchUp.html'"><span>+Criar Matchup</span></button>
+            <button class="btnNav" onclick="window.location.href = 'comunidade.html'"><span>Comunidade</span></button>
+        </nav>
+    </div>
+    <div class="deco-lado-direito">
+        <ul>
+            <li><i class="fa-solid fa-bell"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
+        </ul>
+    </div>
+</header>
+<body>
+<section class="filter-bar">
+    <div class="filter-group">
+        <label for="filter-sport"><i class="fa-solid fa-futbol"></i> Tipo de Esporte</label>
+        <select name="sport" id="filter-sport">
+            <option value="todos">Todos</option>
+            <option value="futebol">Futebol</option>
+            <option value="basquete">Basquete</option>
+            <option value="airsoft">Airsoft</option>
+            <option value="corrida">Corrida</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="filter-location"><i class="fa-solid fa-map-marker-alt"></i> Localização</label>
+        <select name="location" id="filter-location">
+            <option value="todos">Todas</option>
+            <option value="curitiba">Curitiba</option>
+            <option value="sao-paulo">São Paulo</option>
+            <option value="rio-de-janeiro">Rio de Janeiro</option>
+        </select>
+    </div>
+    
+    <button class="btn-more-filters">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Mais Filtros</span>
+    </button>
+</section>
+<main>
+    <div class="matchup-grid">
+
+        <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/Airsoft.webp" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content" >
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="card-address">Rua NeymarCansado, 195</p>
+                <p class="card-info">Capacidade: 10/12 | Horário: 21:00</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/basquete.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i> </div>
+                <p class="card-address">Rua Pelé Calvo, 777</p>
+                <p class="card-info">Capacidade: 5/10 | Horário: 19:30</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/futebol.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i> </div>
+                <p class="card-address">Av. Santos Dumont, 10</p>
+                <p class="card-info">Capacidade: 12/12 | Horário: 22:00</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/futsal.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="card-address">Rua da Várzea, S/N</p>
+                <p class="card-info">Capacidade: 8/10 | Horário: 20:00</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/quadra.png" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Aleatória, 123</p>
+                <p class="card-info">Capacidade: 3/10 | Horário: 21:30</p>
+            </div>
+        </div>
+                <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+                <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+                <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+                <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+                <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+                <div class="card" onclick="window.location.href = 'sobreQuadras.html'">
+            <div class="card-title">
+                <h3>QUADRA DO NEY</h3>
+            </div>
+            <div class="card-image">
+                <img src="imagens/kart.jpg" alt="Quadra de futebol society">
+            </div>
+            <div class="card-content">
+                <div class="card-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="card-address">Rua Fenômeno, 9</p>
+                <p class="card-info">Capacidade: 11/12 | Horário: 18:00</p>
+            </div>
+        </div>
+
+    </div>
+</main>
 </body>
 </html>
