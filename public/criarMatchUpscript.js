@@ -165,12 +165,12 @@ function obterCapacidadeMaxima(esporte) {
 
 function getImagemPorEsporte(esporte) {
   const imagens = {
-    Futebol: "../imagens/futebol.jpg",
-    Futsal: "../imagens/futsal.jpg",
-    Fut7: "../imagens/sintetico.jpg",
-    Basquete: "../imagens/basquete.jpg",
-    Kart: "../imagens/kart.jpg",
-    Volei: "../imagens/volei.jpg"
+    Futebol: "imagens/futebol.jpg",
+    Futsal: "imagens/futsal.jpg",
+    Fut7: "imagens/sintetico.jpg",
+    Basquete: "imagens/basquete.jpg",
+    Kart: "imagens/kart.jpg",
+    Volei: "imagens/volei.jpg"
   };
 
   console.log("Esporte recebido:", esporte);
