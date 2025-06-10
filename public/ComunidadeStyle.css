@@ -85,7 +85,6 @@ img{
     object-fit: fill; 
     border-top-left-radius: 28px ; 
     border-top-right-radius: 28px ; 
-    display: block; 
 }
 
 /* Media Queries para Responsividade do Header */
