@@ -6,35 +6,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sobreQuadrasStyle.css">
-    <script src="script.js" defer></script>
+    <script src="sobreQuadrasScript.js" defer></script>
     <title>Sobre</title>
 </head>
 <header class="navbar">
+
     <div class="logo">
-        <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+
+        <img src="./imagens/matchuplogo.png" alt="Logo MatchUp" />
+
     </div>
 
     <div class="header-center">
+
         <div class="search-area">
+            
             <div class="search">
+
                 <input type="text" placeholder="Pesquisar Quadra" />
+
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
             </div>
+
         </div>
+
         <nav>
+
             <button class="btnNav ativo" onclick="window.location.href = 'index.html'"><span>Inicial</span></button>
             <button class="btnNav" onclick="window.location.href = 'entrarMatchUp.html'"><span>Entrar MatchUp</span></button>
             <button class="btnNav" onclick="window.location.href =  'criarMatchUp.html'"><span>+Criar Matchup</span></button>
             <button class="btnNav" onclick="window.location.href = 'comunidade.html'"><span>Comunidade</span></button>
+
         </nav>
+
     </div>
+
     <div class="deco-lado-direito">
+
         <ul>
+
             <li><i class="fa-solid fa-bell"></i></li>
             <li><i class="fa-solid fa-user"></i></li>
+
         </ul>
+
     </div>
+
 </header>
+
 <body>
 
     <main>
@@ -47,19 +67,19 @@
 
                     <div class="slides-quadras fade">
 
-                        <img src="../imagens/quadra.png">
+                        <img src="./imagens/quadra.png">
 
                     </div>
 
                     <div class="slides-quadras fade">
 
-                        <img src="../imagens/quadra2.jpg">
+                        <img src="./imagens/quadra2.jpg">
 
                     </div>
 
                     <div class="slides-quadras fade">
 
-                        <img src="../imagens/quadra3.jpg">
+                        <img src="./imagens/quadra3.jpg">
 
                     </div>
 
@@ -72,7 +92,7 @@
 
                     <div class="nome-quadra-avaliacao-div">
 
-                        <h2>Quadra do Ney</h2>
+                        <h2 style="margin-top: 1em;">Quadra do Ney</h2>
 
                         <div>
 
@@ -80,7 +100,7 @@
                             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #3b3b3b;"></i>
+                            <i class="fa-solid fa-star" style="color: #3b3b3b; margin-bottom: 3em;"></i>
 
                         </div>
 
@@ -88,7 +108,7 @@
 
                     <div class="botao-reservar-div">
 
-                        <button type="button" onclick="window.location.href='#'">Reservar</button>
+                        <button type="button" onclick="abrirPopup()">Reservar</button>
 
                     </div>
 
@@ -164,8 +184,7 @@
 
                 <div class="avaliar-quadra-div">
 
-                    <input type="text" class="input-avaliar-quadra" placeholder="Faça a sua avaliação aqui: "/>
-                    <i class="fa-solid fa-plus"></i>
+                    <button onclick="abrirPopupAvaliacao()" class="botao-avaliar-quadra">Faça a sua avaliação aqui!</button>
 
                 </div>
 
@@ -179,10 +198,33 @@
 
                         <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
                         
-                        <h2>Pelé</h2>
+                        <h2 style="color: black;">Pelé</h2>
 
                     </div>
 
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+  
+                    <p>
+                        
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                    </p>
+
+                </div>
+
+                <div class="avaliacao-usuario">
+
+                    <div class="usuario-nome-foto">
+
+                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
+                        
+                        <h2 style="color: black;">Bolsonaro</h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                     <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                     <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                     <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
@@ -201,32 +243,8 @@
                     <div class="usuario-nome-foto">
 
                         <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
-                        
-                        <h2>Bolsonaro</h2>
 
-                    </div>
-
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-
-                    
-                    <p>
-                        
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                    </p>
-
-                </div>
-
-                <div class="avaliacao-usuario">
-
-                    <div class="usuario-nome-foto">
-
-                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
-
-                        <h2>Lady Gaga</h2>
+                        <h2 style="color: black;">Lady Gaga</h2>
 
                     </div>
 
@@ -247,6 +265,81 @@
             </div>
 
         </section>
+
+        <div class="overlay" id="popup-reserva">
+
+            <div class="popup">
+
+                <span class="close-btn" onclick="fecharPopup()">×</span>
+
+                <h2 style="color: black;">RESERVA</h2>
+
+                <form onsubmit="event.preventDefault(); alert('Reserva enviada!')">
+
+                    <label for="horario">Horário</label>
+                    <input type="time" id="horario" name="horario">
+
+                    <label for="metodo">Método de pagamento:</label>
+                    <input type="text" id="metodo" name="metodo" placeholder="Ex: à vista, parcelado">
+
+                    <label>Formas de pagamento:</label>
+
+                    <div class="payment-options">
+
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Pix</button>
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Crédito</button>
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Débito</button>
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Money</button>
+
+                    </div>
+
+                    <div class="note">(Sinal de reserva da pista)</div>
+
+                    <div class="actions">
+
+                        <button type="submit" class="btn-enviar">Enviar reserva</button>
+                        <button type="button" class="btn-cancelar" onclick="fecharPopup()">Cancelar</button>
+                        
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="overlay" id="overlay-avaliacao">
+
+            <div id="popup-avaliacao" class="popup">
+                
+                <span class="close-btn" onclick="fecharPopupAvaliacao()">×</span>
+                <h3>Avalie sua experiência</h3>
+
+                <div class="estrelas">
+                    <input type="radio" id="estrela5" name="estrela" value="5"><label for="estrela5">★</label>
+                    <input type="radio" id="estrela4" name="estrela" value="4"><label for="estrela4">★</label>
+                    <input type="radio" id="estrela3" name="estrela" value="3"><label for="estrela3">★</label>
+                    <input type="radio" id="estrela2" name="estrela" value="2"><label for="estrela2">★</label>
+                    <input type="radio" id="estrela1" name="estrela" value="1"><label for="estrela1">★</label>
+                </div>
+
+                <label>Faça um comentário</label>
+                <textarea placeholder="Deixe seu comentário..." id="comentario"></textarea>
+
+                <label for="imagem-upload" class="upload-label">Escolher imagem</label>
+                <input type="file" id="imagem-upload" accept="image/*" hidden />
+                <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+
+                <div class="preview-imagem" id="preview-imagem"></div>
+
+                <div class="botoes">
+                    <button type="button" class="btn-enviar" id="btn-enviar">Enviar</button>
+                    <button type="button" class="btn-cancelar" onclick="fecharPopupAvaliacao()">Fechar</button>
+                </div>
+
+                <div id="mensagem-enviada" class="mensagem-sucesso">Avaliação enviada com sucesso!</div>
+
+            </div>
 
     </main>
     

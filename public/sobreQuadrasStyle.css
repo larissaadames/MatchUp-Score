@@ -26,8 +26,7 @@ main {
 
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    padding-top: 250px;
+    padding-top: 80px;
 
 }
 
@@ -183,6 +182,7 @@ section{
     font-size: 24px;
     font-family: "Montserrat", sans-serif;
     color: white;
+    margin-top: 2em;
 
 }
 
@@ -193,17 +193,27 @@ section{
 
 }
 
+.descricao-detalhada ul{
+
+    margin-bottom: 2em;
+
+}
+
 /* -------------------------------- Design parte branca: avaliação quadras --------------------------------*/
 
 .avaliacoes{
 
     background-color: #D9D9D9;
+    color: black !important;
     height: auto;
     width: 100%;
     flex-grow: 1;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
 }
 
@@ -245,6 +255,7 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 2em;
     margin-top: -8em;
 
 }
@@ -258,7 +269,14 @@ section{
 
 .avaliacao-total h2{
 
+    color: black;
     font-size: 80px;
+
+}
+
+.usuario-nome-foto{
+
+    color: black;
 
 }
 
@@ -280,7 +298,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5em;
+    gap: 1em;
 
 }
 
@@ -357,6 +375,482 @@ section{
     gap: 10px;
     margin-bottom: 1em;
     
+}
+
+.botao-avaliar-quadra{
+
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: #34675C;
+    color: #D9D9D9;
+    cursor: pointer;
+
+}   
+
+/* -------------------------------- PopUp avaliação --------------------------------*/
+
+.popup-avaliacao {
+
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    width: 300px;
+    text-align: center;
+    transform: scale(0.8); 
+    opacity: 0; 
+    transition: all 0.3s ease;
+}
+
+#overlay-avaliacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: black !important;
+
+}
+
+
+#overlay-avaliacao.ativo {
+
+    opacity: 1;
+    pointer-events: all;
+
+}
+
+#overlay-avaliacao.ativo .popup-avaliacao {
+
+    transform: scale(1);
+    opacity: 1;
+
+}
+
+.popup-avaliacao h3 {
+
+    margin-top: 0;
+
+}
+
+.popup-avaliacao .estrelas{
+
+    display: flex;
+
+}
+
+.popup-avaliacao .estrelas input {
+
+    display: none;
+
+}
+
+.popup-avaliacao .estrelas label {
+
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+
+}
+
+.popup-avaliacao .estrelas input:checked ~ label,
+.popup-avaliacao .estrelas label:hover,
+.popup-avaliacao .estrelas label:hover ~ label {
+
+    color: gold;
+
+}
+
+.popup-avaliacao textarea {
+
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+
+.popup-avaliacao .botoes {
+
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.popup-avaliacao button {
+
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.popup-avaliacao button[type="submit"] {
+
+    background-color: #4caf50;
+    color: white;
+
+}
+
+.popup-avaliacao button[type="button"] {
+
+    background-color: #ccc;
+
+}
+
+/* ---------- POPUP DE RESERVA ---------- */
+
+.estrelas input {
+
+    display: none;
+
+}
+
+.estrelas label {
+
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+    
+
+}
+
+.popup-avaliacao h3{
+
+    font-size: 26px;
+
+}
+
+.estrelas {
+    
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+
+}
+
+.estrelas input:checked ~ label,
+.estrelas label:hover,
+.estrelas label:hover ~ label {
+
+    color: gold;
+    
+}
+
+textarea {
+
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+
+}
+
+.upload-label {
+
+    display: flex;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+    border: 2px solid black;
+
+}
+
+#nome-arquivo {
+
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+
+}
+
+.preview-imagem img {
+    
+    margin-top: 1rem;
+    max-width: 100%;
+    border-radius: 6px;
+
+}
+
+.botoes {
+
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+
+}
+
+.btn-enviar,
+.btn-cancelar {
+
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.btn-enviar {
+
+    background: #28a745;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+
+}
+
+.btn-enviar:hover{
+
+    background-color: #053D38;
+    transition: 0.5s;
+
+}
+
+.btn-cancelar {
+
+    background: #f06060;
+    color: white;
+    transition: 0.5s;
+
+}
+
+.btn-cancelar:hover{
+
+    transition: 0.5s;
+    background-color: red;
+
+}
+
+.mensagem-sucesso {
+
+    display: none;
+    margin-top: 1rem;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+    
+}
+
+@keyframes fadeIn {
+
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+
+}
+
+#popup-reserva {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    color: black !important;
+
+}
+
+#popup-reserva.ativo {
+
+    opacity: 1;
+    pointer-events: all;
+
+}
+
+#popup-reserva.fechando {
+
+    opacity: 0;
+    transform: scale(0.95);
+
+}
+
+.popup {
+
+    background: #fff;
+        color: black !important;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    animation: aparecer 0.3s ease;
+    box-sizing: border-box;
+
+}
+
+.close-btn {
+
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #555;
+    cursor: pointer;
+    border: none;
+    background: none;
+
+}
+
+form label {
+
+    display: block;
+    margin-top: 1rem;
+    font-size: 20px;
+
+}
+
+form input[type="time"],
+form input[type="text"] {
+
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+
+}
+
+.payment-options {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0.5rem;
+
+}
+
+.payment-btn {
+
+    flex: 1 1 auto;
+    padding: 10px;
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+}
+
+.note 
+{
+
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 1rem;
+
+}
+
+.actions {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 1.5rem;
+
+}
+
+.btn-enviar,
+.btn-cancelar {
+
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.btn-enviar {
+
+    background: #34675C;
+    color: white;
+
+}
+
+.btn-cancelar {
+
+    background: #f06060;
+    color: white;
+
+}
+
+.payment-btn.selecionado {
+
+    background-color: #053D38;
+    color: white;
+    transform: scale(1.05);
+    transition: 0.2s;
+    
+}
+
+@media (max-width: 480px) {
+
+    .popup {
+        width: 90%;
+        padding: 1.5rem 1rem;
+    }
+
+    .payment-options {
+        flex-direction: column;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
 }
 
 /* 300% */

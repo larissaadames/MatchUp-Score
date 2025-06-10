@@ -10,17 +10,16 @@
 html {
     font-size: clamp(14px, 1vw + 0.5rem, 18px);
 }
-/* --- Corpo da Página --- */
+
 body {
-    --cor-back-1: #242322;
-    --cor-1: #34675C;
-    --cor-2: #D9D9D9;
-    --cor-3: #363432;
-    
-    background-color: var(--cor-back-1);
-    color: var(--cor-2);
-    /* Espaçamento para o header não cobrir o conteúdo. Ajuste se o header ficar maior */
-    padding-top: 130px; 
+    background-color: #242322;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+
+}
+
+main {
+    padding: 2rem;
 }
 
 main h2 {
@@ -35,15 +34,17 @@ main h2 {
 }
 
 .quadra-card {
-    background-color: #D9D9D9;
-    border-radius: 15px;
+    background-color: #363432;
+    border-radius: 12px;
     padding: 1rem;
-    width: 280px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .quadra-card h3 {
-    color: #34675C;
+    color: #A3CCAB;
     font-size: 25px;
 }
 
@@ -55,8 +56,8 @@ main h2 {
 }
 
 .quadra-card p {
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
 }
 
 .quadra-card:hover {
@@ -86,7 +87,7 @@ main h2 {
 }
 
 .popup {
-    background: white;
+    background: #D9D9D9;
     border-radius: 15px;
     padding: 2rem;
     width: 90%;
@@ -214,7 +215,7 @@ footer {
 .select-customizacao i.fa-chevron-down {
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 35%;
     transform: translateY(-50%);
     pointer-events: none; 
     color: #346757;
@@ -223,7 +224,7 @@ footer {
 
 .rating{
 
-    color: #053D38;
+    color: #F0941F;
 
 }
 
@@ -242,4 +243,78 @@ footer {
   .coluna-direita {
     width: 100%;
   }
+}
+/* POPUP DE CRIAÇÃO DE MATCHUP (ajustado para novo design) */
+.popup {
+  background: #D9D9D9;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.popup h2 {
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.popup label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.popup input,
+.popup select {
+  border-radius: 20px;
+  border: 1px solid #000;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.popup button[type="submit"] {
+  background-color: #34675C;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup .cancel {
+  background-color: #A73434;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  opacity: 0.85;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  user-select: none;
 }

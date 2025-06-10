@@ -25,6 +25,9 @@ body{
     font-family: "Bebas Neue", sans-serif; 
     font-size: 18px; 
     border-radius: 20px; 
+    cursor: pointer;
+    border: none;
+
 }
 .btnCard:hover{
     background-color: var(--cor-2); 
@@ -79,7 +82,7 @@ body{
 img{
     width: 100%; 
     height: 200px; 
-    object-fit: cover; 
+    object-fit: fill; 
     border-top-left-radius: 28px ; 
     border-top-right-radius: 28px ; 
     display: block; 
@@ -131,4 +134,16 @@ img{
     header .fa-user {
         font-size: 20px; 
     }
+}
+
+.c1t, .c2t, .c3t, .c1b, .c2b, .c3b {
+    animation: fadeUp 0.8s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse (hover) */
+.c1t:hover, .c2t:hover, .c3t:hover, .c1b:hover, .c2b:hover, .c3b:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
