@@ -1,32 +1,33 @@
-<!-- entrar.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrar em Matchups</title>
-  <link rel="stylesheet" href="styleEntrar.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar em Matchup</title>
+  <link rel="stylesheet" href="styleEntrar.css" />
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">MatchupScore!</div>
-  </header>
-
+  <div id="notificacoes"></div>
   <main>
-    <h2>Matchups Disponíveis</h2>
-    <div class="quadras" id="matchup-disponiveis"></div>
+    <h1>Encontre uma Matchup</h1>
+    <div class="matchup-container">
+      <!-- Cards são inseridos dinamicamente via JS -->
+    </div>
   </main>
 
+  <button><a href="index.html">banana</a></button>
+
   <!-- Pop-up de detalhes da matchup -->
-  <div id="popup-matchup" class="overlay">
-    <div class="popup">
+  <div class="popup overlay">
+    <div class="popup-content">
       <span class="close-btn" onclick="fecharPopupDetalhes()">&times;</span>
       <h2 id="popup-nome"></h2>
       <p><strong>Quadra:</strong> <span id="popup-quadra"></span></p>
       <p><strong>Data:</strong> <span id="popup-data"></span></p>
       <p><strong>Hora:</strong> <span id="popup-hora"></span></p>
       <p><strong>Capacidade:</strong> <span id="popup-capacidade"></span></p>
-      <button onclick="confirmarEntrada()">Entrar na Partida</button>
+      <p id="mensagem-privado" style="color: red; font-weight: bold;"></p>
+      <button id="btn-entrar">Entrar na Partida</button>
     </div>
   </div>
 

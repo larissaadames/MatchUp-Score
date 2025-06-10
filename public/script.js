@@ -80,6 +80,7 @@ function criarMatchup(event) {
   const reserva = reservasUsuario.find(r => r.id === id);
   const nome = document.getElementById("nome").value;
   const capacidade = parseInt(document.getElementById("capacidade").value);
+  const tipo = document.getElementById("tipo").value; // <-- Novo campo
 
   const capacidadeMax = obterCapacidadeMaxima(reserva.esporte);
   if (capacidade <= 0 || capacidade > capacidadeMax) {
@@ -97,7 +98,10 @@ function criarMatchup(event) {
     hora: reserva.hora,
     capacidade: capacidade,
     capacidadeMaxima: capacidadeMax,
-    imagem: getImagemPorEsporte(reserva.esporte)
+    imagem: getImagemPorEsporte(reserva.esporte),
+    tipo: tipo,                      // <-- Agora salvo no objeto
+    participantes: [usuarioAtualId], // <-- Criador já participa
+    solicitacoes: []                 // <-- Lista de pedidos (inicialmente vazia)
   };
 
   const matchups = JSON.parse(localStorage.getItem("matchups")) || [];
@@ -107,6 +111,7 @@ function criarMatchup(event) {
   fecharPopUp();
   exibirMatchups();
 }
+
 
 function exibirMatchups() {
   const container = document.getElementById("matchup-cards");
@@ -174,5 +179,55 @@ function isDataFutura(dataStr) {
   const data = new Date(ano, mes - 1, dia);
   return data >= hoje;
 }
+
+function criarNotificacao(texto) {
+  const container = document.getElementById("notificacoes");
+  if (!container) return;
+
+  const item = document.createElement("div");
+  item.classList.add("notificacao-item");
+  item.textContent = texto;
+
+  container.appendChild(item);
+
+  setTimeout(() => {
+    item.remove();
+  }, 6000); // Duração de exibição
+}
+
+criarNotificacao("🔔 Sua solicitação foi enviada com sucesso!");
+criarNotificacao("⚠️ Capacidade máxima atingida.");
+criarNotificacao("✅ Matchup criada!");
+
+
+function exibirNotificacoes() {
+  const notificacoes = document.getElementById("notificacoes");
+  if (!notificacoes) return;
+
+  const minhasMatchups = matchups.filter(m => 
+    m.userId === usuarioAtualId && 
+    m.tipo === "privado" && 
+    m.solicitacoes?.length > 0
+  );
+
+  notificacoes.innerHTML = "";
+
+  minhasMatchups.forEach(m => {
+    m.solicitacoes.forEach(solicitanteId => {
+      const div = document.createElement("div");
+      div.classList.add("notificacao-item");
+
+      div.innerHTML = `
+        📨 Solicitação para entrar em <strong>${m.nome}</strong> (ID: ${solicitanteId})
+        <button onclick="aceitarSolicitacao(${m.id}, ${solicitanteId})">✔️</button>
+        <button onclick="recusarSolicitacao(${m.id}, ${solicitanteId})">❌</button>
+      `;
+
+      notificacoes.appendChild(div);
+    });
+  });
+}
+
+
 
 window.onload = () => exibirMatchups();

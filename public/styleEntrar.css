@@ -1,103 +1,128 @@
 /* styleEntrar.css */
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-  }
-  
-  .navbar {
-    background-color: #1f2937;
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  main {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .quadras {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-  }
-  
-  .quadra-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 220px;
-    padding: 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .quadra-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .quadra-card img {
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-  }
-  
-  .quadra-card h3 {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .quadra-card p {
-    margin: 0.25rem 0;
-    font-size: 0.9rem;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.6);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-  }
-  
-  .overlay.active {
-    display: flex;
-  }
-  
-  .popup {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 300px;
-    max-width: 90%;
-    position: relative;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #333;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.matchup-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 60px; /* espaço para notificações */
+}
+
+.quadra-card {
+  width: 280px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.quadra-card:hover {
+  transform: scale(1.02);
+}
+
+.quadra-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.quadra-card h3 {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.quadra-card p {
+  margin: 5px 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.publico {
+  background-color: #d4f4dd;
+  color: #246b2f;
+}
+
+.privado {
+  background-color: #ffe0e0;
+  color: #b33939;
+}
+
+.sucesso {
+  color: green;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 10px 10px;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: none;
+}
+
+.popup.active {
+  display: block;
+}
+
+.popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Componente global de notificações */
+#notificacoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1f1f1f;
+  color: white;
+  padding: 12px 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+.notificacao-item {
+  background-color: #444;
+  padding: 6px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  width: fit-content;
+  max-width: 90%;
+  word-break: break-word;
+}

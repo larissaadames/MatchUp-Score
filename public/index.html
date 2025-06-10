@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="notificacoes"></div>
   <header class="navbar">
     <div class="logo">MatchupScore!</div>
     <nav>
@@ -65,11 +66,20 @@
         <label for="capacidade">Capacidade Disponível:</label>
         <input type="number" id="capacidade" min="1" required />
 
+        <label for="tipo">Tipo da Partida:</label>
+          <select id="tipo" name="tipo" required>
+            <option value="publico">Pública</option>
+            <option value="privado">Privada</option>
+          </select>
+
+
         <button type="submit">Salvar</button>
         <button type="button" class="cancel" onclick="fecharPopUp()">Cancelar</button>
       </form>
     </div>
   </div>
+
+  <button><a href="gerenciarMatchups.html">temp</a></button>
 
   <script src="script.js"></script>
 </body>
