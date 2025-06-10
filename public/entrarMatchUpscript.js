@@ -155,7 +155,7 @@ function exibirMatchupsDisponiveis() {
                     <span>${m.capacidade}/${m.capacidadeMaxima}</span>
                 </div>
                 <div class="status ${statusClasse}">${statusTexto}</div>
-                ${amigoPresente ? `<p class="sucesso">👥 Amigo participando</p>` : ""}
+                ${amigoPresente ? `<p class="sucesso"> Você está participando! </p>` : ""}
             </div>`;
         card.onclick = () => abrirDetalhes(m);
         container.appendChild(card);
