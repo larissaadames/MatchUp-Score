@@ -29,3 +29,23 @@
 .cancel { padding: 10px; color: white; border: none; border-radius: 20px; background-color: #A73434; transition: 0.5s; cursor: pointer; }
 .entrar:hover{ background-color: #053D38; }
 .cancel:hover{ background-color: #F06060; }
+.status {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  text-align: center;
+  width: fit-content;
+}
+
+.status.publico {
+  background-color: #34675C; /* verde escuro */
+  color: white;
+}
+
+.status.privado {
+  background-color: #A73434; /* vermelho escuro */
+  color: white;
+}
