@@ -50,7 +50,7 @@ header input[type="text"] {
     padding: 6px 12px;
     border-radius: 50px;
     border: 2px solid var(--cor-3);
-    background-color: transparent;
+    background-color: var(--cor-3);
     color: var(--cor-2);
     font-family: "Inter", sans-serif; 
     font-size: 14px;
