@@ -1,159 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Reserva</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: rgba(0, 0, 0, 0.5);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .reserva-box {
-      background-color: #D9D9D9;
-      width: 400px;
-      padding: 20px;
-      border-radius: 10px;
-      position: relative;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      color: #000000;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #000000;
-    }
-
-    .reserva-box h2 {
-      margin-top: 0;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-top: 12px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    input[type="time"],
-    input[type="text"] {
-      width: 100%;
-      padding: 6px 8px;
-      margin-top: 4px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .payment-options {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .payment-btn {
-      padding: 6px 12px;
-      border: 1px solid #007bff;
-      border-radius: 5px;
-      background-color: #fff;
-      color: #007bff;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .payment-btn.selected {
-      background-color: #007bff;
-      color: white;
-    }
-
-    .note {
-      font-size: 13px;
-      color: #333;
-      margin-top: 10px;
-      font-style: italic;
-    }
-
-    .actions {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .actions button {
-      width: 48%;
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-      color: white;
-    }
-
-    .btn-enviar {
-      background-color: #34675C;
-    }
-
-    .btn-enviar:hover {
-      background-color: #2a524a;
-    }
-
-    .btn-cancelar {
-      background-color: #A73434;
-    }
-
-    .btn-cancelar:hover {
-      background-color: #892a2a;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleReserva.css"/>
+    <title>Reserva</title>
 </head>
 <body>
-  <div class="reserva-box">
-    <button class="close-btn" onclick="alert('Fechar')">X</button>
-    <h2>RESERVA</h2>
-    <form onsubmit="event.preventDefault(); alert('Reserva enviada!')">
-      <label for="horario">Horário</label>
-      <input type="time" id="horario" name="horario">
+    <div class="overlay" id="popup-reserva">
+        <div class="popup">
+            <span class="close-btn" onclick="fecharPopup()">×</span>
+            <h2>RESERVA</h2>
+            <form onsubmit="event.preventDefault(); alert('Reserva enviada!')">
+                <label for="horario">Horário</label>
+                <input type="time" id="horario" name="horario">
 
-      <label for="metodo">Método de pagamento:</label>
-      <input type="text" id="metodo" name="metodo" placeholder="Ex: à vista, parcelado">
+                <label for="metodo">Método de pagamento:</label>
+                <input type="text" id="metodo" name="metodo" placeholder="Ex: à vista, parcelado">
 
-      <label>Formas de pagamento:</label>
-      <div class="payment-options">
-        <button type="button" class="payment-btn" onclick="selectPayment(this)">Pix</button>
-        <button type="button" class="payment-btn" onclick="selectPayment(this)">Crédito</button>
-        <button type="button" class="payment-btn" onclick="selectPayment(this)">Débito</button>
-        <button type="button" class="payment-btn" onclick="selectPayment(this)">Money</button>
-      </div>
+                <label>Formas de pagamento:</label>
+                <div class="payment-options">
+                    <button type="button" class="payment-btn" onclick="selectPayment(this)">Pix</button>
+                    <button type="button" class="payment-btn" onclick="selectPayment(this)">Crédito</button>
+                    <button type="button" class="payment-btn" onclick="selectPayment(this)">Débito</button>
+                    <button type="button" class="payment-btn" onclick="selectPayment(this)">Money</button>
+                </div>
 
-      <div class="note">(Sinal de reserva da pista)</div>
+                <div class="note">(Sinal de reserva da pista)</div>
 
-      <div class="actions">
-        <button type="submit" class="btn-enviar">Enviar reserva</button>
-        <button type="button" class="btn-cancelar" onclick="alert('Cancelado')">Cancelar</button>
-      </div>
-    </form>
-  </div>
+                <div class="actions">
+                    <button type="submit" class="btn-enviar">Enviar reserva</button>
+                    <button type="button" class="btn-cancelar" onclick="fecharPopup()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-  <script>
-    function selectPayment(button) {
-      document.querySelectorAll('.payment-btn').forEach(btn => {
-        btn.classList.remove('selected');
-      });
-      button.classList.add('selected');
-    }
-  </script>
+    <script src="scriptReserva.js"></script>
 </body>
 </html>
