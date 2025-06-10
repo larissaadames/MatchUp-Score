@@ -3,99 +3,72 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cadastroStyle.css">
-    <script src="cadastroScript.js" defer></script>
     <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="cadastroStyle.css">
 </head>
 <body>
 
+<div class="background-container">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+</div>
+
 <main>
-
     <section class="container-registro">
-
         <div class="setinha-volta">
-
             <a href="../tela-boas-vindas/tela-boas-vindas.html">
-
-                <i class="fa-solid fa-angle-left fa-flip-vertical" style="color: #ffffff;"></i>
-
+                <i class="fa-solid fa-angle-left fa-flip-vertical"></i>
             </a>
-
         </div>
 
         <h1>Cadastro:</h1>
 
         <div class="inputs-container">
-
             <div class="input-esquerdo">
-
                 <div class="nome-div input-bloco">
-
-                    <label for="email">Nome</label>
-                    <i class="fa-solid fa-user" style="color: #999"></i>
+                    <label for="nome">Nome</label>
+                    <i class="fa-solid fa-user"></i>
                     <input type="text" id="nome" placeholder="Digite seu nome completo"/>
-
                 </div>
-
                 <div class="email-div input-bloco">
-
                     <label for="email">Email</label>
-                    <i class="fa-solid fa-envelope" style="color: #999"></i>
+                    <i class="fa-solid fa-envelope"></i>
                     <input type="text" id="email" placeholder="Digite seu email"/>
-
                 </div>
-
                 <div class="senha-div input-bloco">
-
                     <label for="senha">Senha</label>
-                    <i class="fa-solid fa-lock" style="color: #999;"></i>
+                    <i class="fa-solid fa-lock"></i>
                     <input type="password" id="senha" placeholder="Digite sua senha"/>
-
                 </div>
-
             </div>
 
             <div class="input-direito">
-
                 <div class="confirmar-senha-div input-bloco">
-
-                    <label for="senha">Confirmar Senha</label>
-                    <i class="fa-solid fa-check" style="color: #999;"></i>
+                    <label for="confirmar-senha">Confirmar Senha</label>
+                    <i class="fa-solid fa-check"></i>
                     <input type="password" id="confirmar-senha" placeholder="Confime sua senha"/>
-
                 </div>
-
                 <div class="telefone-div input-bloco">
-
                     <label for="telefone">Telefone</label>
-                    <i class="fa-solid fa-phone" style="color: #999;"></i>
+                    <i class="fa-solid fa-phone"></i>
                     <input type="tel" id="telefone" placeholder="Digite seu telefone"/>
-
                 </div>
-
                 <div class="aniversario-div input-bloco">
-
                     <label for="aniversario">Data de Nascimento</label>
-                    <i class="fa-solid fa-cake-candles" style="color: #999;"></i>
+                    <i class="fa-solid fa-cake-candles"></i>
                     <input type="date" id="aniversario" placeholder="Selecione sua data de nascimento"/>
-                    
                 </div>
-
             </div>
-
         </div>
 
         <div class="botao-e-login">
-
-            <button type="button" onclick="window.location.href = 'index.html'">Continuar</button>
-            <a href="../tela-login/login.html">Já tem uma conta? Faça o login!</a>
-
+            <button type="button" onclick="alert('Cadastro realizado!')">Continuar</button>
+            <a href="login.html">Já tem uma conta? Faça o login!</a>
         </div>
-
     </section>
-
 </main>
 
 </body>

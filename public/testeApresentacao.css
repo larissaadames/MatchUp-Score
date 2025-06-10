@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.sport-ball {
+    position: absolute;
+    /* Estilos que se aplicam a TODAS as bolas */
+    opacity: 0.3;
+    filter: blur(15px);
+
+    /* Propriedades para garantir que a imagem preencha a div */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- ÁREA PARA ADICIONAR SUAS IMAGENS --- */
+/* Substitua 'imagens/nome-da-bola.png' pelo caminho correto do seu arquivo */
+
+#basketball {
+    background-image: url('imagens/Bpçabasquete.webp');
+    width: 220px;
+    height: 220px;
+    top: 15%;
+    left: 10%;
+}
+
+#soccer {
+    background-image: url('imagens/armageddon25.png');
+    width: 280px;
+    height: 280px;
+    bottom: 10%;
+    right: 15%;
+}
+
+#golf {
+    background-image: url('imagens/armageddon25.png');
+    width: 180px;
+    height: 180px;
+    top: 30%;
+    right: 25%;
+}
+
+#tennis {
+    background-image: url('imagens/bola-tenis.png');
+    width: 160px;
+    height: 160px;
+    top: 5%;
+    right: 5%;
+}
+
+#bowling {
+    background-image: url('imagens/bola-boliche.png');
+    width: 200px;
+    height: 200px;
+    bottom: 20%;
+    left: 20%;
+}
+
+/* --- Restante do CSS (sem alterações) --- */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    color: #a3b18a;
+    margin: 0;
+}
+
+.score-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.score-text .fa-futbol {
+    font-size: 3.5rem;
+    vertical-align: middle;
+    margin: 0 -5px;
+}
