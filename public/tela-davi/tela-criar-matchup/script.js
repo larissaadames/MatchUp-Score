@@ -1,27 +1,16 @@
 const usuarioAtualId = 42;
 
 const reservasUsuario = [
-  // FUTEBOL
   { id: 1, userId: 42, quadra: "Arena Central", esporte: "Futebol", data: "25/12/2025", hora: "19:00" },
   { id: 2, userId: 42, quadra: "Campo Verde", esporte: "Futebol", data: "28/12/2025", hora: "20:00" },
-
-  // FUT7 (SINTÉTICO)
   { id: 3, userId: 42, quadra: "Sintético A", esporte: "Fut7", data: "30/12/2025", hora: "18:00" },
   { id: 4, userId: 42, quadra: "Sintético B", esporte: "Fut7", data: "31/12/2025", hora: "20:00" },
-
-  // VOLEI
   { id: 5, userId: 42, quadra: "Ginásio Leste", esporte: "Volei", data: "01/09/2025", hora: "16:00" },
   { id: 6, userId: 42, quadra: "Praia Norte", esporte: "Volei", data: "03/09/2025", hora: "15:00" },
-
-  // BASQUETE
   { id: 7, userId: 42, quadra: "Quadra Coberta 1", esporte: "Basquete", data: "05/09/2025", hora: "17:00" },
   { id: 8, userId: 42, quadra: "Centro Esportivo Sul", esporte: "Basquete", data: "07/09/2025", hora: "18:30" },
-
-  // KART
   { id: 9, userId: 42, quadra: "Kart Track 1", esporte: "Kart", data: "10/09/2025", hora: "17:00" },
   { id: 10, userId: 42, quadra: "Kart Arena Norte", esporte: "Kart", data: "12/09/2025", hora: "19:00" },
-
-  // FUTSAL
   { id: 11, userId: 42, quadra: "Futsal Clube", esporte: "Futsal", data: "15/10/2025", hora: "20:00" },
   { id: 12, userId: 42, quadra: "Futsal Indoor", esporte: "Futsal", data: "17/10/2025", hora: "21:00" }
 ];
@@ -78,8 +67,14 @@ function criarMatchup(event) {
 
   const id = parseInt(document.getElementById("reserva").value);
   const reserva = reservasUsuario.find(r => r.id === id);
+  if (!reserva) {
+    alert("Selecione uma reserva válida.");
+    return;
+  }
+
   const nome = document.getElementById("nome").value;
   const capacidade = parseInt(document.getElementById("capacidade").value);
+  const tipo = document.getElementById("tipo").value;
 
   const capacidadeMax = obterCapacidadeMaxima(reserva.esporte);
   if (capacidade <= 0 || capacidade > capacidadeMax) {
@@ -89,6 +84,7 @@ function criarMatchup(event) {
 
   const novaMatchup = {
     userId: usuarioAtualId,
+    id: Date.now(),
     idReserva: id,
     nome: nome,
     quadra: reserva.quadra,
@@ -97,7 +93,10 @@ function criarMatchup(event) {
     hora: reserva.hora,
     capacidade: capacidade,
     capacidadeMaxima: capacidadeMax,
-    imagem: getImagemPorEsporte(reserva.esporte)
+    imagem: getImagemPorEsporte(reserva.esporte),
+    tipo: tipo,
+    participantes: [usuarioAtualId],
+    solicitacoes: []
   };
 
   const matchups = JSON.parse(localStorage.getItem("matchups")) || [];
@@ -106,14 +105,16 @@ function criarMatchup(event) {
 
   fecharPopUp();
   exibirMatchups();
+  criarNotificacao("✅ Matchup criada com sucesso!");
 }
 
 function exibirMatchups() {
   const container = document.getElementById("matchup-cards");
+  if (!container) return;
+
   container.innerHTML = "";
 
   const matchups = JSON.parse(localStorage.getItem("matchups")) || [];
-
   const futurasDoUsuario = matchups.filter(m =>
     m.userId === usuarioAtualId && isDataFutura(m.data)
   );
@@ -128,28 +129,17 @@ function exibirMatchups() {
     card.classList.add("quadra-card");
 
     card.innerHTML = `
-        <img src="${m.imagem}" alt="Imagem ${m.esporte}" />
-        <h3>${m.nome}</h3>
-        <p>Quadra: ${m.quadra}</p>
-        <p>Data: ${m.data} - Hora: ${m.hora}</p>
-        <p>Capacidade: ${m.capacidade} / ${m.capacidadeMaxima}</p>
-        <div class="rating">★★★★★</div>
-
+      <img src="${m.imagem}" alt="Imagem ${m.esporte}" />
+      <h3>${m.nome}</h3>
+      <p>Quadra: ${m.quadra}</p>
+      <p>Data: ${m.data} - Hora: ${m.hora}</p>
+      <p>Capacidade: ${m.capacidade} / ${m.capacidadeMaxima}</p>
+      <div class="rating">★★★★★</div>
     `;
 
     container.appendChild(card);
   });
 }
-
-// function excluirMatchup(idReserva) {
-//   let matchups = JSON.parse(localStorage.getItem("matchups")) || [];
-//   matchups = matchups.filter(m => m.idReserva !== idReserva || m.userId !== usuarioAtualId);
-//   localStorage.setItem("matchups", JSON.stringify(matchups));
-//   exibirMatchups(); 
-// }
-
-//      <button class="btn-excluir" onclick="excluirMatchup(${m.idReserva})">Excluir</button>
-
 
 function obterCapacidadeMaxima(esporte) {
   const capacidades = {
@@ -172,12 +162,8 @@ function getImagemPorEsporte(esporte) {
     Kart: "../imagens/kart.jpg",
     Volei: "../imagens/volei.jpg"
   };
-
-  console.log("Esporte recebido:", esporte);
-
-  return imagens[esporte] || "../imagens/futebol.jpg";
+  return imagens[esporte] || "imagens/futebol.jpg";
 }
-
 
 function isDataFutura(dataStr) {
   const hoje = new Date();
@@ -186,4 +172,53 @@ function isDataFutura(dataStr) {
   return data >= hoje;
 }
 
-window.onload = () => exibirMatchups();
+function criarNotificacao(texto) {
+  const container = document.getElementById("notificacoes");
+  if (!container) return;
+
+  const item = document.createElement("div");
+  item.classList.add("notificacao-item");
+  item.textContent = texto;
+
+  container.appendChild(item);
+
+  setTimeout(() => {
+    item.remove();
+  }, 6000);
+}
+
+function exibirNotificacoes() {
+  const notificacoes = document.getElementById("notificacoes");
+  if (!notificacoes) return;
+
+  const matchups = JSON.parse(localStorage.getItem("matchups")) || [];
+
+  const minhasMatchups = matchups.filter(m =>
+    m.userId === usuarioAtualId &&
+    m.tipo === "privado" &&
+    m.solicitacoes?.length > 0
+  );
+
+  notificacoes.innerHTML = "";
+
+  minhasMatchups.forEach(m => {
+    m.solicitacoes.forEach(solicitanteId => {
+      const div = document.createElement("div");
+      div.classList.add("notificacao-item");
+
+      div.innerHTML = `
+        📨 Solicitação para entrar em <strong>${m.nome}</strong> (ID: ${solicitanteId})
+        <button onclick="aceitarSolicitacao(${m.id}, ${solicitanteId})">✔️</button>
+        <button onclick="recusarSolicitacao(${m.id}, ${solicitanteId})">❌</button>
+      `;
+
+      notificacoes.appendChild(div);
+    });
+  });
+}
+
+// Inicialização
+window.onload = () => {
+  exibirMatchups();
+  exibirNotificacoes();
+};
