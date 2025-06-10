@@ -14,6 +14,7 @@ html {
 body {
     background-color: #242322;
     font-family: Arial, sans-serif;
+    line-height: 1.4;
     margin: 0;
     padding: 0;
 }
@@ -192,15 +193,17 @@ main h2 {
 }
 
 .quadra-card {
-    background-color: #D9D9D9;
-    border-radius: 15px;
+    background-color: #363432;
+    border-radius: 12px;
     padding: 1rem;
-    width: 280px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .quadra-card h3 {
-    color: #34675C;
+    color: #A3CCAB;
     font-size: 25px;
 }
 
@@ -212,8 +215,8 @@ main h2 {
 }
 
 .quadra-card p {
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
 }
 
 .quadra-card:hover {
@@ -243,7 +246,7 @@ main h2 {
 }
 
 .popup {
-    background: white;
+    background: #D9D9D9;
     border-radius: 15px;
     padding: 2rem;
     width: 90%;
@@ -380,7 +383,7 @@ footer {
 
 .rating{
 
-    color: #053D38;
+    color: #F0941F;
 
 }
 
