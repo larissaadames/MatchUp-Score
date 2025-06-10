@@ -490,396 +490,132 @@ header.navbar {
 
 /* -------------------------------- PopUp avaliação --------------------------------*/
 
-Certo! Entendi perfeitamente. Você quer que o popup de avaliação se comporte exatamente como o popup de reserva, aparecendo no centro da tela com um overlay (fundo escurecido) e sem ocupar espaço na página quando não estiver ativo.
-
-O problema é que o popup de avaliação atualmente aparece no final da página porque ele está dentro do fluxo normal do documento, e não posicionado de forma fixa como um modal. Para corrigir isso, vamos aplicar as mesmas propriedades CSS do popup de reserva ao popup de avaliação.
-
-O que vamos fazer
-Ajustar o HTML: Para garantir que o overlay funcione corretamente, vamos envolver o popup de avaliação em uma div com a classe overlay, similar ao popup de reserva.
-Ajustar o CSS: Aplicaremos o mesmo posicionamento e estilo de overlay ao novo container do popup de avaliação, e garantiremos que ele fique oculto por padrão.
-Ajustar o JavaScript: Pequenas adaptações para garantir que as funções de abrir e fechar lidem com o novo overlay e o estado de exibição.
-Código Atualizado
-Aqui estão as modificações necessárias no seu HTML, CSS e JavaScript:
-
-HTML (arquivo index.html ou similar)
-Vamos envolver o popup de avaliação em uma div com a classe overlay e um novo ID overlay-avaliacao.
-
-HTML
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="sobreQuadrasStyle.css">
-    <script src="sobreQuadrasScript.js" defer></script>
-    <title>Sobre</title>
-</head>
-<body>
-
-    <header class="navbar">
-
-        <div class="logo">
-
-            <img src="./imagens/matchuplogo.png" alt="Logo MatchUp" />
-
-        </div>
-
-        <div class="search-area">
-
-            <div class="search">
-
-                <input type="text" placeholder="Pesquisar Quadra" />
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-
-            </div>
-
-        </div>
-
-        <div class="deco-lado-direito">
-
-            <ul>
-
-                <li><i class="fa-solid fa-bell"></i></li>
-
-                <li><i class="fa-solid fa-user"></i></li>
-
-            </ul>
-
-        </div>
-
-    </header>
-
-    <nav class="menu">
-        <ul>
-            <li><a href="#">Inicial</a></li>
-            <li><a href="../tela-entrar-matchup/entrar-matchup.html"">Entrar MatchUp</a></li>
-            <li><a href="criar-matchup.html" class="link-ativo">Criar MatchUp</a></li>
-            <li><a href="#">Comunidade</a></li>
-        </ul>
-    </nav>
-
-    <main>
-
-        <section class="sobre-quadras">
-
-            <div class="lado-esquerdo">
-
-                <div class="imagens-display">
-
-                    <div class="slides-quadras fade">
-
-                        <img src="./imagens/quadra.png">
-
-                    </div>
-
-                    <div class="slides-quadras fade">
-
-                        <img src="./imagens/quadra2.jpg">
-
-                    </div>
-
-                    <div class="slides-quadras fade">
-
-                        <img src="./imagens/quadra3.jpg">
-
-                    </div>
-
-                    <a class="prev" onclick="proximoSlide(-1)">❮</a>
-                    <a class="next" onclick="proximoSlide(1)">❯</a>
-
-                </div>
-
-                <div class="nome-quadra-avaliacao-botao-div">
-
-                    <div class="nome-quadra-avaliacao-div">
-
-                        <h2>Quadra do Ney</h2>
-
-                        <div>
-
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                            <i class="fa-solid fa-star" style="color: #3b3b3b;"></i>
-
-                        </div>
-
-                    </div>
-
-                    <div class="botao-reservar-div">
-
-                        <button type="button" onclick="abrirPopup()">Reservar</button>
-
-                    </div>
-
-                </div>
-
-                <div class="descricao-detalhada">
-
-                    <ul>
-
-                        <li>Tipo: Futsal</li>
-                        <li>Capacidade: 10 jogadores (5x5)</li>
-                        <li>Tamanho: 28m x 15m</li>
-                        <li>Piso: Concreto Polido</li>
-                        <li>Cobertura: ✅</li>
-                        <li>Extras: Tabelas oficiais, iluminação, vestiários</li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-            <div class="lado-direito">
-
-                <div class="mapa-quadra">
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.601913429184!2d-49.25532212387553!3d-25.451569277548067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4fa6efc3181%3A0x8b0f452491a6f477!2sPUCPR%20-%20Pontif%C3%ADcia%20Universidade%20Cat%C3%B3lica%20do%20Paran%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1747157740176!5m2!1spt-BR!2sbr" 
-                        style="border-radius:30px; border-style: none;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-
-                    <p>Rua: R. Lorem Ipsum 1234 - Bairro Alto</p>
-
-                </div>
-
-                <div class="texto-descricao-quadra">
-
-                    <p>
-                        
-                        Lorem Ipsum is simply dummy text of the printing and  typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="avaliacoes">
-
-            <h1>Avaliações</h1>
-
-            <div>
-
-                <div class="avaliacao-total">
-
-                    <h2>4.2<span>/5</span></h2>
-                    <p>Nota do espaço</p>
-
-                </div>
-
-                <div class="porcentagem-avaliacao">
-
-                    <span>90%</span>
-
-                    <p>Dos clientes recomendam esse espaço</p>
-
-                </div>
-
-                <div class="avaliar-quadra-div">
-
-                    <button onclick="abrirPopupAvaliacao()" class="botao-avaliar-quadra">Faça a sua avaliação aqui!</button>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="avaliacao-usuario">
-
-                    <div class="usuario-nome-foto">
-
-                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
-                        
-                        <h2>Pelé</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-
-                    
-                    <p>
-                        
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                    </p>
-
-                </div>
-
-                <div class="avaliacao-usuario">
-
-                    <div class="usuario-nome-foto">
-
-                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
-                        
-                        <h2>Bolsonaro</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-
-                    
-                    <p>
-                        
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                    </p>
-
-                </div>
-
-                <div class="avaliacao-usuario">
-
-                    <div class="usuario-nome-foto">
-
-                        <i class="fa-solid fa-user usuario-avaliacao-foto"></i>
-
-                        <h2>Lady Gaga</h2>
-
-                    </div>
-
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-
-                    <p>
-                        
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <div class="overlay" id="popup-reserva">
-
-            <div class="popup">
-
-                <span class="close-btn" onclick="fecharPopup()">×</span>
-
-                <h2>RESERVA</h2>
-
-                <form onsubmit="event.preventDefault(); alert('Reserva enviada!')">
-
-                    <label for="horario">Horário</label>
-                    <input type="time" id="horario" name="horario">
-
-                    <label for="metodo">Método de pagamento:</label>
-                    <input type="text" id="metodo" name="metodo" placeholder="Ex: à vista, parcelado">
-
-                    <label>Formas de pagamento:</label>
-
-                    <div class="payment-options">
-
-                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Pix</button>
-                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Crédito</button>
-                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Débito</button>
-                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Money</button>
-
-                    </div>
-
-                    <div class="note">(Sinal de reserva da pista)</div>
-
-                    <div class="actions">
-
-                        <button type="submit" class="btn-enviar">Enviar reserva</button>
-                        <button type="button" class="btn-cancelar" onclick="fecharPopup()">Cancelar</button>
-                        
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-        <div class="overlay" id="overlay-avaliacao">
-            <div id="popup-avaliacao" class="popup">
-                <span class="close-btn" onclick="fecharPopupAvaliacao()">×</span>
-                <h3>Avalie sua experiência</h3>
-
-                <div class="estrelas">
-                    <input type="radio" id="estrela5" name="estrela" value="5"><label for="estrela5">★</label>
-                    <input type="radio" id="estrela4" name="estrela" value="4"><label for="estrela4">★</label>
-                    <input type="radio" id="estrela3" name="estrela" value="3"><label for="estrela3">★</label>
-                    <input type="radio" id="estrela2" name="estrela" value="2"><label for="estrela2">★</label>
-                    <input type="radio" id="estrela1" name="estrela" value="1"><label for="estrela1">★</label>
-                </div>
-
-                <textarea placeholder="Deixe seu comentário..." id="comentario"></textarea>
-
-                <label for="imagem-upload" class="upload-label">Escolher imagem</label>
-                <input type="file" id="imagem-upload" accept="image/*" hidden />
-                <span id="nome-arquivo">Nenhum arquivo selecionado</span>
-
-                <div class="preview-imagem" id="preview-imagem"></div>
-
-                <div class="botoes">
-                    <button type="button" class="btn-enviar" id="btn-enviar">Enviar</button>
-                    <button type="button" class="btn-cancelar" onclick="fecharPopupAvaliacao()">Fechar</button>
-                </div>
-
-                <div id="mensagem-enviada" class="mensagem-sucesso">Avaliação enviada com sucesso!</div>
-            </div>
-        </div>
-        </main>
-    
-</body>
-</html>
-CSS (arquivo sobreQuadrasStyle.css)
-Removeremos as propriedades de posicionamento e exibição diretamente do .popup-avaliacao e as aplicaremos ao novo #overlay-avaliacao. Também ajustaremos a transição para corresponder ao aparecer keyframe.
-
-CSS
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-    
-*{
-    font-family: "Bebas Neue", sans-serif;
+.popup-avaliacao {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    width: 300px;
+    text-align: center;
+    transform: scale(0.8); 
+    opacity: 0; 
+    transition: all 0.3s ease;
 }
 
-body{
-    background-color: #242322;
-    margin: 0;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
+#overlay-avaliacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow: auto;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-section{
+
+#overlay-avaliacao.ativo {
+
+    opacity: 1;
+    pointer-events: all;
+
+}
+
+#overlay-avaliacao.ativo .popup-avaliacao {
+
+    transform: scale(1);
+    opacity: 1;
+
+}
+
+.popup-avaliacao h3 {
+
+    margin-top: 0;
+
+}
+
+.popup-avaliacao .estrelas{
+
     display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 5em;
+
+}
+
+.popup-avaliacao .estrelas input {
+
+    display: none;
+
+}
+
+.popup-avaliacao .estrelas label {
+
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+
+}
+
+.popup-avaliacao .estrelas input:checked ~ label,
+.popup-avaliacao .estrelas label:hover,
+.popup-avaliacao .estrelas label:hover ~ label {
+
+    color: gold;
+
+}
+
+.popup-avaliacao textarea {
+
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+
+.popup-avaliacao .botoes {
+
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.popup-avaliacao button {
+
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.popup-avaliacao button[type="submit"] {
+
+    background-color: #4caf50;
+    color: white;
+
+}
+
+.popup-avaliacao button[type="button"] {
+
+    background-color: #ccc;
+
 }
 
 /* -------------------------------- Design navbar --------------------------------*/
 
 header.navbar {
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
     display: flex;
     align-items: center;
@@ -887,22 +623,28 @@ header.navbar {
     background-color: #242322;
     color: white;
     padding: 0 1rem;
+
 }
 
 .logo img {
+
     height: 100px;
     object-fit: contain;
+
 }
 
 .search-area {
+
     flex-grow: 1;
     min-width: 0;
     display: flex;
     justify-content: center;
     margin: 0 1rem;
+
 }
 
 .search {
+
     display: flex;
     align-items: center;
     border-radius: 20px;
@@ -910,9 +652,11 @@ header.navbar {
     width: 100%;
     max-width: 600px;
     background-color: #363432;
+
 }
 
 .search input {
+
     color: white;
     border: 3px solid #363432;
     background-color: #242322;
@@ -925,17 +669,21 @@ header.navbar {
     font-size: 1rem;
     min-width: 0;
     transition: 0.5s;
+
 }
 
 .search input:hover {
+
     background-color: #4a4947; 
     border-radius: 20px;
     transition: 0.5s;
     outline: none;
     box-shadow: 0 4px 8px rgba(0, 128, 0, 0.6);
+
 }
 
 .search button {
+    
     border: none;
     background-color: #363432;
     color: white;
@@ -944,35 +692,45 @@ header.navbar {
     transition: 0.3s;
     font-size: 16px;
     flex-shrink: 0;
+
 }
 
 .deco-lado-direito {
+
     flex-shrink: 0;
     max-width: 100px; 
     overflow: hidden;
+
 }
 
 .deco-lado-direito ul {
+
     display: flex;
     gap: 2rem;
     padding: 0;
     margin-right: 1.5rem;
     list-style: none;
+
 }
 
 .deco-lado-direito ul li {
+
     color: white;
     font-size: 20px;
     cursor: pointer;
+
 }
 
 .menu {
+
     background-color: #242322;
     margin-top: 2rem;
     text-align: center;
+
 }
 
 .menu ul {
+
     list-style: none;
     display: inline-flex;
     gap: 2rem;
@@ -981,18 +739,22 @@ header.navbar {
     font-size: 1.25rem;
     justify-content: center;
     flex-wrap: wrap;
+
 }
 
 .menu ul li a {
+
     color: white;
     text-decoration: none;
     position: relative;
     padding-bottom: 4px;
     font-family: 'Bebas Neue', 'sans-serif';
     transition: color 0.3s;
+
 }
 
 .menu ul li a::after {
+
     content: '';
     position: absolute;
     bottom: 0;
@@ -1004,23 +766,31 @@ header.navbar {
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
+
 }
 
 .menu ul li a:hover::after {
+
     transform: scaleX(1);
     transform-origin: left;
+
 }
 
 .menu ul li a:hover {
+
     color: #ddd;
+
 }
 
 .menu ul li a.link-ativo {
+
     color: #aaa;
     position: relative;
+
 }
 
 .menu ul li a.link-ativo::after {
+
     content: '';
     position: absolute;
     bottom: 0;
@@ -1032,21 +802,27 @@ header.navbar {
     transform: scaleX(1);
     transform-origin: left;
     transition: none;
+
 }
 
 .navbar, .menu ul li a, .search input, .search button {
+
     transition: all 0.3s ease;
+    
 }
 
 /* -------------------------------- Design parte preta: informações quadra --------------------------------*/
 
 .lado-direito, .lado-esquerdo{
+
     flex: 1 1 500px;
     max-width: 600px;
     width: 100%;
+
 }
 
 .sobre-quadras{
+
     width: 100%;
     height: auto;
     display: flex;
@@ -1056,6 +832,7 @@ header.navbar {
 }
 
 .botao-reservar-div button{
+
     background-color: #34675C;
     height: 59px;
     width: 40vw;
@@ -1066,35 +843,45 @@ header.navbar {
     border-radius: 30px;
     transition: 0.5s;
     cursor: pointer;
+
 }
 
 .botao-reservar-div button:hover{
+
     transition: 0.5s;
     background-color: #053D38;
+
 }
 
 .imagens-display {
+
     position: relative;
     max-width: 725px; 
     height: auto;
+
 }
 
 .slides-quadras {
+
     display: none;
     position: relative;
     width: 100%;
+
 }
 
 .slides-quadras img {
+
     width: 100%;
     max-width: 100%;
     height: 400px;
     max-height: 700px;
     object-fit: cover;
     border-radius: 20px;
+
 }
 
 .imagens-display .prev, .imagens-display .next {
+
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -1106,33 +893,44 @@ header.navbar {
     background-color: rgba(0,0,0,0.4);
     border-radius: 10px;
     z-index: 10;
+
 }
 
 .imagens-display .prev {
+
     left: 0;
+
 }
 
 .imagens-display .next {
+
     right: 0;
+
 }
 
 .imagens-display .prev:hover, .imagens-display .next:hover {
+
     background-color: rgba(0,0,0,0.8);
+
 }
 
 .usuario-avaliacao-foto{
+
     border-radius: 50%;
     border: 2px solid black;
     padding: 20px 25px;
     font-size: 25px;
+
 }
 
 .mapa-quadra{
+
     background-color: #34675C;
     width: 100%;
     padding-bottom: 10px;
     border-radius: 30px;
     text-align: center;
+
 }
 
 .mapa-quadra iframe{
@@ -1141,94 +939,125 @@ header.navbar {
 }
 
 .mapa-quadra p{
+
     text-align: center;
     color: white;
     font-family: "Montserrat", sans-serif;
+
 }
 
 .texto-descricao-quadra p{
+
     text-align: center;
     font-size: 24px;
     font-family: "Montserrat", sans-serif;
     color: white;
+
 }
 
 .descricao-detalhada li{
+
     font-family: "Montserrat", sans-serif;
     color: white;
+
 }
 
 /* -------------------------------- Design parte branca: avaliação quadras --------------------------------*/
 
 .nome-quadra-avaliacao-botao-div{
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .nome-quadra-avaliacao-div h2{
+
     font-size: 40px;
     color: white;
     margin-bottom: 15px;
+
 }
 
 .nome-quadra-avaliacao-div i{
+
     font-size: 25px;
+
 }
 
 .avaliacoes{
+
     background-color: #D9D9D9;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .avaliacao-total{
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: -8em;
+
 }
 
 .avaliacoes h1{
+
     margin:40px;
     font-size: 35px;
+
 }
 
 .avaliacao-total h2{
+
     font-size: 80px;
+
 }
 
 .avaliacao-total span{
+
     font-size: 60px;
+
 }
 
 .avaliacao-total p{
+
     font-family: "Montserrat", sans-serif;
     margin-top: -5em;
+
 }
 
 .porcentagem-avaliacao{
+
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5em;
+
 }
 
 .porcentagem-avaliacao span{
+
     font-size: 40px;
     padding: 20px;
     border: 8px solid #34675C;
     border-radius: 50%;
+
 }
 
 .porcentagem-avaliacao p{
+
     font-family: "Montserrat", sans-serif;
+
 }
 
 .avaliar-quadra-div{
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1236,24 +1065,30 @@ header.navbar {
     max-width: 100%;
     width: 100%;
     margin-top: 50px;
+
 }
 
 .avaliacao-usuario{
+
     background-color: white;
     margin-bottom: 4em;
     border-radius: 40px;
     padding: 20px;
     width: 40vm;
     max-width: 600px;
+
 }
 
 .usuario-nome-foto{
+
     display: flex;
     gap: 10px;
     margin-bottom: 1em;
+
 }
 
 .botao-avaliar-quadra{
+
     padding: 20px;
     font-size: 25px;
     border-radius: 25px;
@@ -1261,208 +1096,146 @@ header.navbar {
     background-color: #34675C;
     color: #D9D9D9;
     cursor: pointer;
-}
 
-/* -------------------------------- PopUp avaliação --------------------------------*/
-
-/* Removido o posicionamento fixo daqui para o #overlay-avaliacao */
-.popup-avaliacao {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    width: 300px;
-    text-align: center;
-    /* Adicionado para fazer com que ele herde a transição do overlay */
-    transform: scale(0.8); /* Começa menor */
-    opacity: 0; /* Começa invisível */
-    transition: all 0.3s ease; /* Transição para scale e opacity */
-}
-
-/* Aplicado ao #overlay-avaliacao */
-#overlay-avaliacao {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex; /* Para centralizar o popup */
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    opacity: 0; /* Começa invisível */
-    pointer-events: none; /* Não interage com o mouse quando invisível */
-    transition: opacity 0.3s ease; /* Transição para o overlay */
-    overflow: auto;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-
-#overlay-avaliacao.ativo {
-    opacity: 1;
-    pointer-events: all;
-}
-
-/* O popup em si terá a animação de escala */
-#overlay-avaliacao.ativo .popup-avaliacao {
-    transform: scale(1);
-    opacity: 1;
-}
-
-.popup-avaliacao h3 {
-    margin-top: 0;
-}
-
-.popup-avaliacao .estrelas input {
-    display: none;
-}
-
-.popup-avaliacao .estrelas label {
-    font-size: 30px;
-    color: #ccc;
-    cursor: pointer;
-}
-
-.popup-avaliacao .estrelas input:checked ~ label,
-.popup-avaliacao .estrelas label:hover,
-.popup-avaliacao .estrelas label:hover ~ label {
-    color: gold;
-}
-
-.popup-avaliacao textarea {
-    width: 100%;
-    height: 80px;
-    margin-top: 15px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.popup-avaliacao .botoes {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.popup-avaliacao button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.popup-avaliacao button[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-}
-
-.popup-avaliacao button[type="button"] {
-    background-color: #ccc;
 }
 
 
 /* ---------- POPUP DE RESERVA ---------- */
 
 .estrelas input {
-  display: none;
+
+    display: none;
+
 }
 
 .estrelas label {
-  font-size: 2rem;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.2s;
+
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+    
+
+}
+
+.popup-avaliacao h3{
+
+    font-size: 26px;
+
 }
 
 .estrelas {
-  direction: rtl; /* vira o sentido para direita para esquerda */
+    
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+
 }
 
 .estrelas input:checked ~ label,
 .estrelas label:hover,
 .estrelas label:hover ~ label {
-  color: gold;
+
+    color: gold;
+    
 }
 
 textarea {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  resize: vertical;
+
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+
 }
 
 .upload-label {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 1rem;
+
+    display: flex;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+    border: 2px solid black;
+
 }
 
 #nome-arquivo {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #333;
+
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+
 }
 
 .preview-imagem img {
-  margin-top: 1rem;
-  max-width: 100%;
-  border-radius: 6px;
+    
+    margin-top: 1rem;
+    max-width: 100%;
+    border-radius: 6px;
+
 }
 
 .botoes {
-  display: flex;
-  gap: 10px;
-  margin-top: 1.5rem;
+
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+
 }
 
 .btn-enviar,
 .btn-cancelar {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+
 }
 
 .btn-enviar {
-  background: #28a745;
-  color: white;
+
+    background: #28a745;
+    color: white;
+
 }
 
 .btn-cancelar {
-  background: #dc3545;
-  color: white;
+
+    background: #dc3545;
+    color: white;
+
 }
 
 .mensagem-sucesso {
-  display: none;
-  margin-top: 1rem;
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border-radius: 6px;
-  font-weight: bold;
-  text-align: center;
-  animation: fadeIn 0.3s ease;
+
+    display: none;
+    margin-top: 1rem;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+    
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+
+}
 
 /* -------------------------------- Design parte branca: avaliação quadras --------------------------------*/
 
