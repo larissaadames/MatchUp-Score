@@ -9,37 +9,33 @@
     <link rel="stylesheet" href="criarMatchUpstyle.css" />
     <script src="criarMatchUpscript.js"></script>
 </head>
-<body>
+<header class="navbar">
+    <div class="logo">
+        <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+    </div>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
-        </div>
-
+    <div class="header-center">
         <div class="search-area">
             <div class="search">
                 <input type="text" placeholder="Pesquisar Quadra" />
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
-
-        <div class="deco-lado-direito">
-            <ul>
-                <li><i class="fa-solid fa-bell"></i></li>
-                <li><i class="fa-solid fa-user"></i></li>
-            </ul>
-        </div>
-    </header>
-
-    <nav class="menu">
+        <nav>
+            <button class="btnNav " onclick="window.location.href = 'index.html'"><span>Inicial</span></button>
+            <button class="btnNav ativo" onclick="window.location.href = 'entrarMatchUp.html'"><span>Entrar MatchUp</span></button>
+            <button class="btnNav" onclick="window.location.href =  'criarMatchUp.html'"><span>+Criar Matchup</span></button>
+            <button class="btnNav" onclick="window.location.href = 'comunidade.html'"><span>Comunidade</span></button>
+        </nav>
+    </div>
+    <div class="deco-lado-direito">
         <ul>
-            <li><a href="#">Inicial</a></li>
-            <li><a href="../tela-entrar-matchup/entrar-matchup.html"">Entrar MatchUp</a></li>
-            <li><a href="criar-matchup.html" class="link-ativo">Criar MatchUp</a></li>
-            <li><a href="#">Comunidade</a></li>
+            <li><i class="fa-solid fa-bell"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
         </ul>
-    </nav>
-
+    </div>
+</header>
+<body>
     <main>
             <h2>Matchups Criadas</h2>
             <div class="quadras" id="matchup-cards"></div>

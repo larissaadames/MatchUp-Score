@@ -6,41 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrar em Matchups</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="entrarMatchUpstyle.css">
     <script src="entrarMatchUpscript.js"></script>
 
 </head>
-<body>
-    <header class="navbar">
-        <div class="logo">
-            <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
-        </div>
+<header class="navbar">
+    <div class="logo">
+        <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+    </div>
 
+    <div class="header-center">
         <div class="search-area">
             <div class="search">
                 <input type="text" placeholder="Pesquisar Quadra" />
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
-
-        <div class="deco-lado-direito">
-            <ul>
-                <li><i class="fa-solid fa-bell"></i></li>
-                <li><i class="fa-solid fa-user"></i></li>
-            </ul>
-        </div>
-    </header>
-
-    <nav class="menu">
+        <nav>
+            <button class="btnNav " onclick="window.location.href = 'index.html'"><span>Inicial</span></button>
+            <button class="btnNav ativo" onclick="window.location.href = 'entrarMatchUp.html'"><span>Entrar MatchUp</span></button>
+            <button class="btnNav" onclick="window.location.href =  'criarMatchUp.html'"><span>+Criar Matchup</span></button>
+            <button class="btnNav" onclick="window.location.href = 'comunidade.html'"><span>Comunidade</span></button>
+        </nav>
+    </div>
+    <div class="deco-lado-direito">
         <ul>
-            <li><a href="#">Inicial</a></li>
-            <li><a href="entrarMatchUp.html" class="link-ativo">Entrar MatchUp</a></li>
-            <li><a href="criarMatchUp.html">Criar MatchUp</a></li>
-            <li><a href="#">Comunidade</a></li>
+            <li><i class="fa-solid fa-bell"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
         </ul>
-    </nav>
-
+    </div>
+</header>
+<body>
     <main>
         <h2>Matchups Disponíveis</h2>
         <div class="quadras" id="matchup-disponiveis"></div>

@@ -9,19 +9,33 @@
     <script src="script.js" defer></script>
     <title>Sobre</title>
 </head>
-<body>
+<header class="navbar">
+    <div class="logo">
+        <img src="../imagens/matchuplogo.png" alt="Logo MatchUp" />
+    </div>
 
-    <header>
-    <input class="barraPesquisa" type="text" name="pesquisa" placeholder="Pesquise">
-<!--    <i class="fa-regular fa-bell"></i>
-    <i class="fa-solid fa-user usuario-perfil-foto"></i>-->
+    <div class="header-center">
+        <div class="search-area">
+            <div class="search">
+                <input type="text" placeholder="Pesquisar Quadra" />
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <button class="btnNav ativo" onclick="window.location.href = 'index.html'"><span>Inicial</span></button>
+            <button class="btnNav" onclick="window.location.href = 'entrarMatchUp.html'"><span>Entrar MatchUp</span></button>
+            <button class="btnNav" onclick="window.location.href =  'criarMatchUp.html'"><span>+Criar Matchup</span></button>
+            <button class="btnNav" onclick="window.location.href = 'comunidade.html'"><span>Comunidade</span></button>
+        </nav>
+    </div>
+    <div class="deco-lado-direito">
+        <ul>
+            <li><i class="fa-solid fa-bell"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
+        </ul>
+    </div>
 </header>
-<nav>
-    <button class="btnNav ativo"><span>Inicial</span></button>
-    <button class="btnNav"><span>Entrar MatchUp</span></button>
-    <button class="btnNav"><span>+Criar Matchup</span></button>
-    <button class="btnNav"><span>Comunidade</span></button>
-</nav>
+<body>
 
     <main>
 

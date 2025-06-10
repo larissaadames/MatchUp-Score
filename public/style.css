@@ -2,142 +2,172 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Bebas Neue", sans-serif;
 }
 
-body{
-    /* Variáveis de cor do Código 1 */
+/* --- Corpo da Página --- */
+body {
     --cor-back-1: #363432;
     --cor-1: #34675C;
     --cor-2: #D9D9D9;
     --cor-3: #242322;
     
-    background-color: var(--cor-3); /* Usando a cor de fundo mais escura para combinar */
+    background-color: var(--cor-back-1);
     color: var(--cor-2);
+    /* Espaçamento para o header não cobrir o conteúdo. Ajuste se o header ficar maior */
+    padding-top: 130px; 
+}
+main {
+    padding: 2rem;
 }
 
-/* ================================== */
-/* ESTILOS DO HEADER (DO CÓDIGO 2)  */
-/* Adaptados para usar variáveis      */
-/* ================================== */
-/* ================================== */
-/* ESTILOS DO HEADER (DO CÓDIGO 2)  */
-/* Adaptados para usar variáveis      */
-/* ================================== */
+
+/* ======================================== */
+/* CABEÇALHO (Versão Limpa e Final)         */
+/* ======================================== */
+
 header.navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    background-color: var(--cor-back-1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.432);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: var(--cor-3);
-    padding: 0 1rem;
-    transition: all 0.3s ease;
+    justify-content: space-between; 
+    padding: 0.5rem 1.5rem; 
+    min-height: 100px; /* Altura mínima para o header */
 }
 
+/* --- Bloco da Esquerda: Logo (Com o truque de redimensionamento) --- */
+.logo {
+    flex-shrink: 0; 
+    /* Margens negativas para compensar o tamanho da imagem */
+    /* Veja as instruções abaixo para saber como alterar */
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
 .logo img {
-    height: 80px;
+    /* Altere a altura do logo aqui */
+    height: 180px; 
     object-fit: contain;
 }
 
-.search-area {
-    flex-grow: 1;
-    min-width: 0;
+/* --- Bloco Central: Busca e Navegação --- */
+.header-center {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 0 1rem;
+    flex-grow: 1; 
+    gap: 15rem; /* Espaço horizontal entre a busca e a navegação */
 }
 
+.search-area {
+    max-width: 500px;
+    width: 100%;
+}
 .search {
     display: flex;
     align-items: center;
     border-radius: 20px;
     overflow: hidden;
     width: 100%;
-    max-width: 600px;
-    background-color: var(--cor-back-1);
+    background-color: var(--cor-3);
 }
-
 .search input {
     color: var(--cor-2);
-    border: 3px solid transparent;
     background-color: var(--cor-back-1);
-    border-radius: 20px;
     flex: 1;
     padding: 0.5rem 1rem;
     outline: none;
     font-family: "Inter", sans-serif;
     font-size: 1rem;
-    min-width: 0;
-    transition: 0.5s;
+    transition: border-color 0.3s ease;
+    border: 2px solid var(--cor-3);
+    border-radius: 20px;
 }
-
 .search input:hover {
     border-color: var(--cor-1);
 }
-
 .search button {
     border: none;
-    background-color: var(--cor-back-1);
-    color: var(--cor-2);
+    background-color: var(--cor-3);
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: 0.3s;
-    flex-shrink: 0;
 }
-
-/* ===== NOVA REGRA ADICIONADA AQUI ===== */
 .search button i {
-    font-size: 16px; /* Define o tamanho do ícone */
-    color: var(--cor-2); /* Garante que a cor seja aplicada */
+    font-size: 16px;
+    color: var(--cor-2);
 }
-/* ======================================= */
 
+/* --- Navegação Principal (Regra Única e Limpa) --- */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.btnNav {
+    background-color: transparent;
+    color: var(--cor-2);
+    font-size: 20px;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 5px 0;
+    transition: 0.3s;
+}
+.btnNav:hover { color: gray; }
+.btnNav::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--cor-1);
+    transition: width 0.3s ease-in-out;
+}
+.btnNav:hover::after, .btnNav.ativo::after { width: 100%; }
+
+/* --- Bloco da Direita: Ícones --- */
 .deco-lado-direito {
     flex-shrink: 0;
 }
-
 .deco-lado-direito ul {
     display: flex;
-    gap: 2rem;
-    padding: 0;
-    margin-right: 1.5rem;
+    gap: 5rem;
     list-style: none;
+    padding: 20px;
 }
-
 .deco-lado-direito ul li {
     font-size: 22px;
     cursor: pointer;
-    transition: color 0.3s;
 }
-
 .deco-lado-direito ul li:hover {
     color: var(--cor-1);
 }
 
-/* ================================= */
-/* ESTILOS DA NAV (DO CÓDIGO 1)    */
-/* Mantidos e com ajuste de espaçamento */
+/* O restante do seu CSS para .filter-bar, .card, etc., continua aqui... */
+
+
 /* ================================= */
 nav {
     /* Padding aumentado para não ficar atrás do novo header fixo */
-    padding-top: 100px; 
-    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
     gap: 20px;
     align-items: center;
-    background-color: var(--cor-3);
+    background-color: var(--cor-back-1);
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--cor-back-1); /* Adicionado para separar do conteúdo */
 }
 
 .btnNav{
