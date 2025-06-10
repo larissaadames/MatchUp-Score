@@ -3,57 +3,49 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="loginStyle.css">
-    <script src="loginScript.js" defer></script>
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="loginStyle.css">
 </head>
 <body>
 
-<main>
+<div class="background-container">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+</div>
 
+<main>
     <section class="container-login">
 
         <div class="setinha-volta">
-
-            <a href="../tela-boas-vindas/tela-boas-vindas.html">
-
-                <i class="fa-solid fa-angle-left fa-flip-vertical" style="color: #ffffff;"></i>
-
+            <a href="index.html">
+                <i class="fa-solid fa-angle-left fa-flip-vertical"></i>
             </a>
-
         </div>
 
         <h1>Login:</h1>
 
-        <div class="email-div">
-
+        <div class="input-bloco">
             <label for="email">Email</label>
-            <i class="fa-solid fa-envelope" style="color: #999"></i>
+            <i class="fa-solid fa-envelope"></i>
             <input type="text" id="email" placeholder="Digite seu email"/>
-
         </div>
 
-        <div class="senha-div">
-
+        <div class="input-bloco">
             <label for="senha">Senha</label>
-            <i class="fa-solid fa-lock" style="color: #999;"></i>
+            <i class="fa-solid fa-lock"></i>
             <input type="password" id="senha" placeholder="Digite sua senha"/>
-
         </div>
 
-        <div>
-
+        <div class="links-e-botao">
             <a href="#">Esqueceu a senha?</a>
-
-            <button type="button" onclick="window.location.href = '../tela-sobre-quadras/sobre-quadras-esportivas.html'">Continuar</button>
-
+            <button type="button" onclick="alert('Login efetuado!')">Continuar</button>
         </div>
 
     </section>
-
-  </main>
+</main>
 
 </body>
 </html>
