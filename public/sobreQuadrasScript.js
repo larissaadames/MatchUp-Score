@@ -38,3 +38,35 @@ function mostrarSlides(valorPrevNext)
     slides[slideIndex - 1].style.display = "block";
         
 }
+
+const popup = document.getElementById("popup-reserva");
+const overlay = document.querySelector(".overlay"); 
+
+function abrirPopup() 
+{
+
+    popup.classList.remove("fechando");
+    popup.classList.add("ativo"); 
+
+}
+
+function fecharPopup() 
+{
+    
+    popup.classList.add("fechando");
+    
+    setTimeout(() => {
+        popup.classList.remove("ativo");
+        popup.classList.remove("fechando");
+    }, 300); 
+
+}
+
+function selectPayment(btn) 
+{
+
+    document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('selecionado'));
+
+    btn.classList.add('selecionado');
+
+}

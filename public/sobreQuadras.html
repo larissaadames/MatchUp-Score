@@ -4,52 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sobreQuadrasStyle.css">
-    <script src="script.js" defer></script>
+    <script src="sobreQuadrasScript.js" defer></script>
     <title>Sobre</title>
 </head>
 <body>
 
-    <header>
+    <header class="navbar">
 
-        <nav>
+        <div class="logo">
 
-            <div class="sanduiche-nav">
+            <img src="./imagens/matchuplogo.png" alt="Logo MatchUp" />
 
-                <i class="fa-solid fa-bars"></i>
+        </div>
 
-            </div>
+        <div class="search-area">
 
-            <div class="pesquisa-links-centro-nav">
+            <div class="search">
 
-                <div class="pesquisar-nav">
-
-                    <input type="text" placeholder="Pesquisar quadra ou região">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-
-                </div>
-
-                <ul class="links-centro-nav">
-
-                    <li><a href="#">Comunidade</a></li>
-                    <li><a href="#">Entrar MatchUp</a></li>
-
-                </ul>
+                <input type="text" placeholder="Pesquisar Quadra" />
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
 
             </div>
 
-            <div class="perfil-nav">
+        </div>
 
-                <button type="button" onclick="window.location.href = '#' " class="criar-matchup"><i class="fa-solid fa-plus"></i> Criar MatchUp</button>
-                <i class="fa-regular fa-bell"></i>
-                <i class="fa-solid fa-user usuario-perfil-foto"></i>
-                
-            </div>
+        <div class="deco-lado-direito">
 
-        </nav>
+            <ul>
+
+                <li><i class="fa-solid fa-bell"></i></li>
+
+                <li><i class="fa-solid fa-user"></i></li>
+
+            </ul>
+
+        </div>
 
     </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicial</a></li>
+            <li><a href="../tela-entrar-matchup/entrar-matchup.html"">Entrar MatchUp</a></li>
+            <li><a href="criar-matchup.html" class="link-ativo">Criar MatchUp</a></li>
+            <li><a href="#">Comunidade</a></li>
+        </ul>
+    </nav>
 
     <main>
 
@@ -61,19 +62,19 @@
 
                     <div class="slides-quadras fade">
 
-                        <img src="../imagens/quadra.png">
+                        <img src="./imagens/quadra.png">
 
                     </div>
 
                     <div class="slides-quadras fade">
 
-                        <img src="../imagens/quadra2.jpg">
+                        <img src="./imagens/quadra2.jpg">
 
                     </div>
 
                     <div class="slides-quadras fade">
 
-                        <img src="../imagens/quadra3.jpg">
+                        <img src="./imagens/quadra3.jpg">
 
                     </div>
 
@@ -102,7 +103,7 @@
 
                     <div class="botao-reservar-div">
 
-                        <button type="button" onclick="window.location.href='#'">Reservar</button>
+                        <button type="button" onclick="abrirPopup()">Reservar</button>
 
                     </div>
 
@@ -178,8 +179,7 @@
 
                 <div class="avaliar-quadra-div">
 
-                    <input type="text" class="input-avaliar-quadra" placeholder="Faça a sua avaliação aqui: "/>
-                    <i class="fa-solid fa-plus"></i>
+                    <button class="botao-avaliar-quadra">Faça a sua avaliação aqui!</button>
 
                 </div>
 
@@ -261,6 +261,48 @@
             </div>
 
         </section>
+
+        <div class="overlay" id="popup-reserva">
+
+            <div class="popup">
+
+                <span class="close-btn" onclick="fecharPopup()">×</span>
+
+                <h2>RESERVA</h2>
+
+                <form onsubmit="event.preventDefault(); alert('Reserva enviada!')">
+
+                    <label for="horario">Horário</label>
+                    <input type="time" id="horario" name="horario">
+
+                    <label for="metodo">Método de pagamento:</label>
+                    <input type="text" id="metodo" name="metodo" placeholder="Ex: à vista, parcelado">
+
+                    <label>Formas de pagamento:</label>
+
+                    <div class="payment-options">
+
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Pix</button>
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Crédito</button>
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Débito</button>
+                        <button type="button" class="payment-btn" onclick="selectPayment(this)">Money</button>
+
+                    </div>
+
+                    <div class="note">(Sinal de reserva da pista)</div>
+
+                    <div class="actions">
+
+                        <button type="submit" class="btn-enviar">Enviar reserva</button>
+                        <button type="button" class="btn-cancelar" onclick="fecharPopup()">Cancelar</button>
+                        
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
 
     </main>
     
